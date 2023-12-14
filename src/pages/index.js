@@ -1,9 +1,15 @@
-import * as React from "react"
+import React from "react"
+import Layout from "../components/layout"
+import Hero from "../components/hero"
+
+
 
 
 const IndexPage = () => {
   return (
-    <div><h1>MotoSchool</h1></div>
+    <Layout invert={true}>
+      <Hero/>
+    </Layout>
   )
 }
 
