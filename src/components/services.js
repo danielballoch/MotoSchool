@@ -4,9 +4,9 @@ import styled from "@emotion/styled"
 const Wrapper = styled.div`
 display: flex;
 flex-direction: column;
+background-color: lightgrey;
 justify-content: center;
 align-items: center;
-background-color: lightblue;
 height: 960px;
 width: 100%;
 .skill-level-wrapper {

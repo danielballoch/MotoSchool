@@ -28,7 +28,7 @@ a {
     align-items: center;
     .nav {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         margin-top: 40px;
         margin-bottom: 10px;
         a {
@@ -112,21 +112,17 @@ export default function Footer() {
             <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="footer-logo" src="../images/icon.png"/>
             <div className="nav">
                    <Link to="/">Home</Link>
-                   <Link to="/services">Our Services</Link>
-                   <Link to="/why-coast-sweep">Why Coast Sweep?</Link>
-                   <Link to="/contact">Contact Us</Link>
+                   <Link to="/why-coast-sweep">Our Tracks</Link>
+                   <Link to="/contact">Support</Link>
+                   <Link to="/why-coast-sweep">Book a lesson</Link>
             </div>
             <div className="main-content">
-                <h2>Book Your Clean & Inspection Today!</h2>
-                <div className="contact-info">
-                    <a href={"tel:"}><img alt="telephone silhouette" src={Phone}/> phone</a>
-                    <a href={"mailto:"}><img alt="envolope silhouette" src={Email}/> email</a>
-                </div>
-                <p>Coast Sweep has over 20+ years experience keeping local fireplaces and chimneys clean, efficient, and operating safely. Servicing Hokitika, Greymouth, and the Wider West Coast of New Zealands South Island.</p>
+                <h2>Book Your Trials Lesson Today!</h2>
+                <p>MX Coaching ages 4 to 104. For first-timers and speed demons alike; Bikes and safety gear available for hire.</p>
             </div>
         </div>
         <div className="bottom-footer">
-            <Link to="/">© Coast Sweep 2023</Link>
+            <Link to="/">© MotoSchool 2023</Link>
             <Link to="/terms-and-conditions">Terms and Conditions</Link>
         </div>
         

@@ -5,7 +5,7 @@ const Wrapper = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: lightblue;
+background-color: lightgrey;
 height: 960px;
 width: 100%;
 .content-left {

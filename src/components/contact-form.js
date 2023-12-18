@@ -3,9 +3,13 @@ import styled from "@emotion/styled"
 // import BackgroundImage from "../images/engineering-images/Hero2Dark.png"
 import { useForm } from "react-hook-form"
 import ReCAPTCHA from "react-google-recaptcha";
+import Calendar from "react-calendar"
+import DRP from "../components/dateRangePicker"
+import '@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import { isWithinInterval } from "date-fns";
 
 const FormDiv = styled.div`
-padding-bottom: 100px;
 max-width: 100vw;
 display: flex;
 justify-content: center;
@@ -15,8 +19,12 @@ align-items: center;
 background-size: contain;
 background-position: center;
 background-filter: brightness(10%);
+.react-daterange-picker__wrapper input:hover {
+    cursor: pointer !important;
+}
 form {
-    max-width: 700px;
+    max-width: 400px;
+    padding: 20px;
     width: 100vw;
     min-height: 500px;
     height: 100%;
@@ -27,43 +35,55 @@ form {
     flex-direction: column;
     justify-content: center;
     label, input, textarea, button {
-        margin: 0 20px;
+        // margin: 0 20px;
+        // margin-left: 20px;
+    }
+    .select-style {
+        background-color: white;
+        padding: 5px;
+        border: solid 1px black;
+        :hover {
+            cursor: pointer;
+        }
+    }
+    .button-style {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #4a9c2d;
+        color: white;
+        border: solid 1px #4a9c2d;
+        font-size: 14px;
+        font-weight: 600;
+        :hover {
+            cursor: pointer;
+        }
+    }
+    option:hover {
+        cursor: pointer;
     }
     h2 {
         margin-top: 0;
     }
     label {
-        margin-top: 10px;
+        margin-top: 20px;
         margin-bottom: 2px;
         :first-of-type {
             margin-top: 0;
         }
     }
-    input,textarea {
+    textarea {
         font-size: 16px;
-        padding: 10px;
+        padding: 5px;
     }
     textarea {
         height: 100px;
-        max-width: 676px;
         resize:vertical;
     }
-    button {
-        margin-top: 20px;
-        padding: 20px 20px;
-        /* height: 60px; */
-        border-radius: 8px;
-        font-size: 18px;
-        font-weight: 600;
-        border: 3px solid black;
-        background-color: black;
-        color: white;
-        text-decoration: none;
-        transition: .3s;
+    .react-daterange-picker__wrapper {
+        // margin-left: 20px;
+        margin-bottom: 20px;
         :hover {
             cursor: pointer;
-            background-color: rgb(229, 86, 57);
-            border: 3px solid rgb(229, 86, 57);
         }
     }
     .message {
@@ -231,8 +251,9 @@ export default function ContactElectrical({formEmail,title, infoTitle, infoNumbe
                         {...register("Name", { required: true, maxLength: 2000 })} 
                     />
                     
-                    <label htmlFor="track">Track Option: </label>
+                    <label htmlFor="track">Lesson Selection:</label>
                     <select
+                    className="select-style"
                          id="track"
                          type="track" 
                          name="track" 
@@ -248,6 +269,7 @@ export default function ContactElectrical({formEmail,title, infoTitle, infoNumbe
 
                     <label htmlFor="bikes">Bike(s): </label>
                     <select
+                    className="select-style"
                          id="bikes"
                          type="bikes" 
                          name="bikes" 
@@ -258,16 +280,19 @@ export default function ContactElectrical({formEmail,title, infoTitle, infoNumbe
                         <option>Bringing Own Bikes</option>
                         <option>Mixed</option>
                     </select>  
+
+                    <label htmlFor="bikes">Booking Period:</label>
+                    <DRP />
                        
                     
                     <button
                         type="submit" 
-                        class="g-recaptcha"
+                        class="g-recaptcha button-style"
                         data-sitekey="site_key"
                         data-callback='onSubmit'
                         data-action='submit'
                     >
-                    Send Message</button>
+                    SEND BOOKING REQUEST</button>
                 </form>
                 {/* <div className="info-div">
                     <h2><b>{infoTitle}</b> {infoNumber}</h2>
