@@ -112,7 +112,7 @@ export default function Services(){
                 <p>{main.lessonsSubheading}</p>
             </div>
             <div className="skill-level-wrapper">
-            {lessons.map((lesson, i) => (
+            {orderedLessons.map((lesson, i) => (
                     <div className="skill-level">
                     <GatsbyImage className="img" image={getImage(lesson.mainImage.gatsbyImageData)} alt={lesson.mainImage.alt} placeholder="blur"/>
                     {/* <div className="img">Image Placeholder</div> */}
