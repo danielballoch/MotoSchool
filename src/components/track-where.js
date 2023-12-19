@@ -87,13 +87,22 @@ export default function TrackWhere(){
     `)
     let tracks = data.tracks.nodes;
     let main = data.main;
+    let order = []
+    let orderedTracks = []
+    for (let i = 0; i <= tracks.length-1; i++){
+        order.push([tracks[i].trackName, i])
+    }
+    order.sort()
+    for (let i = 0; i <= tracks.length-1; i++){
+        orderedTracks.push(tracks[order[i][1]])
+    }
     return(
         <Wrapper>
             <div className="content-left">
                 <GatsbyImage className="image-placeholder" image={getImage(tracks[active].mainImage.gatsbyImageData)} alt={tracks[0].mainImage.alt} placeholder="blur"/>
                 {/* <div className="image-placeholder">Image Placeholder</div> */}
                 <div className="track-list">
-                    {tracks.map((track, i) => (
+                    {orderedTracks.map((track, i) => (
                         <div onClick={() => setActive(i)} className={active === i? "track-text active" : "track-text"}><p><b>{track.trackName}: </b>{track.trackBlurb}</p></div>
                     ))}
                 </div>

@@ -96,6 +96,15 @@ export default function Services(){
     `)
     let main = data.main;
     let lessons = data.lessons.nodes;
+    let order = []
+    let orderedLessons = []
+    for (let i = 0; i <= lessons.length-1; i++){
+        order.push([lessons[i].trackName, i])
+    }
+    order.sort()
+    for (let i = 0; i <= lessons.length-1; i++){
+        orderedLessons.push(lessons[order[i][1]])
+    }
     return(
         <Wrapper>
             <div className="title-wrapper">
