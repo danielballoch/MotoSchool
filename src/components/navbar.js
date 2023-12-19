@@ -190,13 +190,9 @@ export default function Navbar({contact, invert}) {
                 <Hamburger invert={invert} clickFunction={() => updateMenu(!menu)}/>
                 <div className={menu ? "side-drawer" : "hide"}>
                     <Link className="active" to="/">HOME</Link>
-                    <Link to="/services" className="services">OUR SERVICES</Link>
-                    <Link to="/why-coast-sweep">WHY COAST SWEEP?</Link>
-                    <Link to="/contact">CONTACT US</Link>
-                    <div className="contact-info">
-                        <a href={"tel:"}><img src={Phone}/> hello</a>
-                        <a href={"mailto:"}><img src={Email}/> hello</a>
-                    </div>
+                    <Link to="/services" className="services">About</Link>
+                    <Link to="/why-coast-sweep">Our Tracks</Link>
+                    <Link to="/contact">Booking Options</Link>
                 </div>
             </div>
     </Wrapper>
