@@ -8,7 +8,6 @@ import ReCAPTCHA from "react-google-recaptcha";
 // import '@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css';
 // import 'react-calendar/dist/Calendar.css';
 import { isWithinInterval } from "date-fns";
-import { useStaticQuery, graphql } from "gatsby"
 import DatePicker from 'react-date-picker'
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
@@ -28,7 +27,7 @@ background-filter: brightness(10%);
 }
 form {
     max-width: 400px;
-    padding: 20px;
+    padding: 40px 80px;
     width: 100vw;
     min-height: 500px;
     height: 100%;
@@ -40,6 +39,10 @@ form {
     justify-content: center;
     .react-date-picker__inputGroup__input {
         min-width: 1.2em!important;
+    }
+    .react-calendar__tile--active, .react-calendar__tile:enabled:hover {
+        background-color: #4a9c2d!important;
+        color: white !important;
     }
     label, input, textarea, button {
         // margin: 0 20px;
@@ -206,11 +209,55 @@ form {
 }
 `
 
-export default function ContactElectrical({formLabel1, formLabel2, formLabel3, formLabel4, timesAvailable}){
+
+function isWithinRange(date, range) {
+    return isWithinInterval(date, { start: range[0], end: range[1] });
+  }
+  function isWithinRanges(date, ranges) {
+    return ranges.some(range => isWithinRange(date, range));
+  }
+  let in3Days = new Date(2023, 11, 28);
+  let in5Days = new Date(2023, 11, 28);
+  let in13Days = new Date(2023, 11, 26);
+  let in15Days = new Date(2023, 11, 26);
+
+export default function ContactElectrical({formLabel1, formLabel2, formLabel3, formLabel4, timesAvailable, datesUnavailable}){
+
+    ///need to reformat dates here before adding to state, or do in useEffect
+
     const reRef = useRef();
     const [value, onChange] = useState(new Date());
     const [activeTime, setActiveTime] = useState(0)
     const [serverState, setServerState] = useState({formSent: false});
+    const [bookedDates, setBookedDates] = useState([ [in3Days, in5Days],[in13Days, in15Days],])
+    
+    useEffect(()=> {
+        console.log(datesUnavailable[0].bookedDate)
+        console.log("old:",bookedDates)
+        let datesUnavailableRanges = []
+        for(let i = 0; i < datesUnavailable.length; i++){
+            let d = datesUnavailable[i].bookedDate.split("/")
+            console.log(d)
+            console.log("test date:", d[0], d[1],d[2])
+            //except here they need to be in the right format so I need to seperate and make it so it's like this: new Date(2023, 11, 26);
+            datesUnavailableRanges.push([new Date(Number(d[2]), Number(d[1])-1, Number(d[0])), new Date(Number(d[2]), Number(d[1])-1, Number(d[0]))])
+        }
+        setBookedDates(datesUnavailableRanges);
+        console.log("new:",datesUnavailableRanges)
+    },[datesUnavailable])
+
+    function tileDisabled({ date, view}) {
+      // Add class to tiles in month view only
+    //   console.log("test og",bookedDates )
+      if (view === 'month') {
+        // Check if a date React-Calendar wants to check is within any of the ranges
+        return isWithinRanges(date, bookedDates);
+      }
+    }
+    
+
+
+
     const {
         register,
         handleSubmit,
@@ -266,7 +313,6 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
       for (let i = 0; i <= timesAvailable.length-1; i++){
           orderedTimes.push(timesAvailable[order[i][1]])
       }
-      console.log("Hello Hello", timesAvailable,order,orderedTimes)
   return (
             <FormDiv>
                 {/* <ReCAPTCHA 
@@ -308,7 +354,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                         <option>Track access only - $20 per rider</option>
                     </select>  
 
-                    <label htmlFor="bikes">{formLabel3}</label>
+                    {/* <label htmlFor="bikes">{formLabel3}</label>
                     <select
                     className="select-style"
                          id="bikes"
@@ -320,12 +366,12 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                         <option selected>Need to hire</option>
                         <option>Bringing Own Bikes</option>
                         <option>Mixed</option>
-                    </select>  
+                    </select>   */}
 
                     <label htmlFor="bikes">{formLabel4}</label>
                     {/* <DRP /> */}
                     {/* <Calendar/> */}
-                    <DatePicker onChange={onChange} value={value}/>
+                    <DatePicker onChange={onChange} value={value} tileDisabled={tileDisabled} minDate={new Date()}/>
                     <label>Time Selection:</label>
                     <div className="time-selection">
                         {orderedTimes.map((time, i)=>(

@@ -79,11 +79,17 @@ export default function Hero(){
                     time
                 }
             }
+            unavailable: allDatoCmsBookedDate {
+                nodes {
+                  bookedDate
+                }
+            }
         }
         
     `)
     let c = data.home;
     let timesAvailable = data.times.nodes
+    let datesUnavailable = data.unavailable.nodes
     return(
         <Wrapper>
             <div className="content-left">
@@ -102,7 +108,7 @@ export default function Hero(){
                 </div>
             </div>
             <div className="content-right">
-                <ContactForm formLabel1={c.formLabel1} formLabel2={c.formLabel2} formLabel3={c.formLabel3} formLabel4={c.formLabel4} timesAvailable={timesAvailable}/>
+                <ContactForm formLabel1={c.formLabel1} formLabel2={c.formLabel2} formLabel3={c.formLabel3} formLabel4={c.formLabel4} timesAvailable={timesAvailable} datesUnavailable={datesUnavailable}/>
             </div>
         </Wrapper>
     )
