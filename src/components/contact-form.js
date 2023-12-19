@@ -3,12 +3,15 @@ import styled from "@emotion/styled"
 // import BackgroundImage from "../images/engineering-images/Hero2Dark.png"
 import { useForm } from "react-hook-form"
 import ReCAPTCHA from "react-google-recaptcha";
-import Calendar from "react-calendar"
-import DRP from "../components/dateRangePicker"
-import '@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css';
-import 'react-calendar/dist/Calendar.css';
+// import Calendar from "react-calendar"
+// import DRP from "../components/dateRangePicker"
+// import '@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css';
+// import 'react-calendar/dist/Calendar.css';
 import { isWithinInterval } from "date-fns";
 import { useStaticQuery, graphql } from "gatsby"
+import DatePicker from 'react-date-picker'
+import 'react-date-picker/dist/DatePicker.css';
+import 'react-calendar/dist/Calendar.css';
 
 const FormDiv = styled.div`
 max-width: 100vw;
@@ -35,9 +38,29 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    .react-date-picker__inputGroup__input {
+        min-width: 1.2em!important;
+    }
     label, input, textarea, button {
         // margin: 0 20px;
         // margin-left: 20px;
+    }
+    .time-selection {
+        display: flex;
+        flex-wrap: wrap;
+        div {
+            // border: solid 1px black;
+            padding: 20px 20px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            margin: 0 10px 10px 0;
+            // background-color: grey;
+            :hover {
+                cursor: pointer;
+            }
+        }
+        .active-time {
+            background-color: #c9d2c8;
+        }
     }
     .select-style {
         background-color: white;
@@ -67,6 +90,7 @@ form {
     }
     #name {
         padding: 5px;
+        border: 1px solid black;
     }
     label {
         margin-top: 20px;
@@ -182,8 +206,10 @@ form {
 }
 `
 
-export default function ContactElectrical({formLabel1, formLabel2, formLabel3, formLabel4}){
+export default function ContactElectrical({formLabel1, formLabel2, formLabel3, formLabel4, timesAvailable}){
     const reRef = useRef();
+    const [value, onChange] = useState(new Date());
+    const [activeTime, setActiveTime] = useState(0)
     const [serverState, setServerState] = useState({formSent: false});
     const {
         register,
@@ -231,6 +257,16 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
             }, 3000)
           }
       })
+      let order = []
+      let orderedTimes = []
+      for (let i = 0; i <= timesAvailable.length-1; i++){
+          order.push([timesAvailable[i].time, i])
+      }
+      order.sort()
+      for (let i = 0; i <= timesAvailable.length-1; i++){
+          orderedTimes.push(timesAvailable[order[i][1]])
+      }
+      console.log("Hello Hello", timesAvailable,order,orderedTimes)
   return (
             <FormDiv>
                 {/* <ReCAPTCHA 
@@ -287,7 +323,15 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                     </select>  
 
                     <label htmlFor="bikes">{formLabel4}</label>
-                    <DRP />
+                    {/* <DRP /> */}
+                    {/* <Calendar/> */}
+                    <DatePicker onChange={onChange} value={value}/>
+                    <label>Time Selection:</label>
+                    <div className="time-selection">
+                        {orderedTimes.map((time, i)=>(
+                            <div onClick={()=>setActiveTime(i)} className={i === activeTime ? "active-time" : ""}>{time.time}</div>
+                        ))}
+                    </div>
                        
                     
                     <button

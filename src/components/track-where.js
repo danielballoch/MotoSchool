@@ -99,7 +99,7 @@ export default function TrackWhere(){
     return(
         <Wrapper>
             <div className="content-left">
-                <GatsbyImage className="image-placeholder" image={getImage(tracks[active].mainImage.gatsbyImageData)} alt={tracks[0].mainImage.alt} placeholder="blur"/>
+                <GatsbyImage className="image-placeholder" image={getImage(orderedTracks[active].mainImage.gatsbyImageData)} alt={orderedTracks[0].mainImage.alt} placeholder="blur"/>
                 {/* <div className="image-placeholder">Image Placeholder</div> */}
                 <div className="track-list">
                     {orderedTracks.map((track, i) => (

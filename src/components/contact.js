@@ -65,7 +65,7 @@ width: 100%;
 export default function Hero(){
     const data = useStaticQuery(graphql`
         query HomepageContactQuery {
-            datoCmsHomepage {
+            home: datoCmsHomepage {
                 contentLeft {
                   value
                 }
@@ -74,9 +74,16 @@ export default function Hero(){
                 formLabel3
                 formLabel4
             }
+            times: allDatoCmsTimesAvailable {
+                nodes {
+                    time
+                }
+            }
         }
+        
     `)
-    let c = data.datoCmsHomepage;
+    let c = data.home;
+    let timesAvailable = data.times.nodes
     return(
         <Wrapper>
             <div className="content-left">
@@ -95,7 +102,7 @@ export default function Hero(){
                 </div>
             </div>
             <div className="content-right">
-                <ContactForm formLabel1={c.formLabel1} formLabel2={c.formLabel2} formLabel3={c.formLabel3} formLabel4={c.formLabel4}/>
+                <ContactForm formLabel1={c.formLabel1} formLabel2={c.formLabel2} formLabel3={c.formLabel3} formLabel4={c.formLabel4} timesAvailable={timesAvailable}/>
             </div>
         </Wrapper>
     )
