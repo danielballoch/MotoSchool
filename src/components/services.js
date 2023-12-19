@@ -99,13 +99,13 @@ export default function Services(){
     let order = []
     let orderedLessons = []
     for (let i = 0; i <= lessons.length-1; i++){
-        order.push([lessons[i].trackName, i])
+        order.push([lessons[i].title, i])
     }
     order.sort()
     for (let i = 0; i <= lessons.length-1; i++){
         orderedLessons.push(lessons[order[i][1]])
     }
-    console.log(lessons,order,orderedLessons)
+    console.log("Hello Hello", lessons,order,orderedLessons)
     return(
         <Wrapper>
             <div className="title-wrapper">

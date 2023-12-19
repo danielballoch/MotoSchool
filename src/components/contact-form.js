@@ -65,6 +65,9 @@ form {
     h2 {
         margin-top: 0;
     }
+    #name {
+        padding: 5px;
+    }
     label {
         margin-top: 20px;
         margin-bottom: 2px;
@@ -244,12 +247,13 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                     </div>
                     {/* <h2>{title}</h2> */}
                     <label htmlFor="name">{formLabel1}</label>
-                    <textarea
-                        id="name" 
+                    <input
+                        placeholder="i.e Alex 7, Kate 12, Tom 35"
+                        id="name"
+                        type="text" 
                         name="name" 
-                        rows="5" 
-                        required
-                        {...register("Name", { required: true, maxLength: 2000 })} 
+                        required  
+                        {...register("Name", { required: true, maxLength: 100 })} 
                     />
                     
                     <label htmlFor="track">{formLabel2}</label>
