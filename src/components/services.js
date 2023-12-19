@@ -105,6 +105,7 @@ export default function Services(){
     for (let i = 0; i <= lessons.length-1; i++){
         orderedLessons.push(lessons[order[i][1]])
     }
+    console.log(lessons,order,orderedLessons)
     return(
         <Wrapper>
             <div className="title-wrapper">
