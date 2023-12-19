@@ -230,11 +230,11 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
       })
   return (
             <FormDiv>
-                <ReCAPTCHA 
+                {/* <ReCAPTCHA 
                     sitekey={process.env.RECAPTCHA_SITE_KEY} 
                     size="invisible"
                     ref={reRef} 
-                />
+                /> */}
                 <form onSubmit={handleSubmit(onSubmit)} autocomplete="on">
                     <div className={serverState.formSent === true ? "message sent" : "message"}>
                         <div>
