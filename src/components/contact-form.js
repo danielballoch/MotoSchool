@@ -8,6 +8,7 @@ import DRP from "../components/dateRangePicker"
 import '@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import { isWithinInterval } from "date-fns";
+import { useStaticQuery, graphql } from "gatsby"
 
 const FormDiv = styled.div`
 max-width: 100vw;
@@ -178,10 +179,9 @@ form {
 }
 `
 
-export default function ContactElectrical({formEmail,title, infoTitle, infoNumber, infoContacts}){
+export default function ContactElectrical({formLabel1, formLabel2, formLabel3, formLabel4}){
     const reRef = useRef();
     const [serverState, setServerState] = useState({formSent: false});
-
     const {
         register,
         handleSubmit,
@@ -191,6 +191,7 @@ export default function ContactElectrical({formEmail,title, infoTitle, infoNumbe
 
       async function onSubmit(data){
         // const reRef = useRef<>();
+        console.log(data)
         const token = await reRef.current.executeAsync();
         reRef.current.reset();
         // console.log("this is where form data should log")
@@ -242,7 +243,7 @@ export default function ContactElectrical({formEmail,title, infoTitle, infoNumbe
                         </div>
                     </div>
                     {/* <h2>{title}</h2> */}
-                    <label htmlFor="name">Rider Name(s) & Age(s):</label>
+                    <label htmlFor="name">{formLabel1}</label>
                     <textarea
                         id="name" 
                         name="name" 
@@ -251,7 +252,7 @@ export default function ContactElectrical({formEmail,title, infoTitle, infoNumbe
                         {...register("Name", { required: true, maxLength: 2000 })} 
                     />
                     
-                    <label htmlFor="track">Lesson Selection:</label>
+                    <label htmlFor="track">{formLabel2}</label>
                     <select
                     className="select-style"
                          id="track"
@@ -267,7 +268,7 @@ export default function ContactElectrical({formEmail,title, infoTitle, infoNumbe
                         <option>Track access only - $20 per rider</option>
                     </select>  
 
-                    <label htmlFor="bikes">Bike(s): </label>
+                    <label htmlFor="bikes">{formLabel3}</label>
                     <select
                     className="select-style"
                          id="bikes"
@@ -281,7 +282,7 @@ export default function ContactElectrical({formEmail,title, infoTitle, infoNumbe
                         <option>Mixed</option>
                     </select>  
 
-                    <label htmlFor="bikes">Booking Period:</label>
+                    <label htmlFor="bikes">{formLabel4}</label>
                     <DRP />
                        
                     

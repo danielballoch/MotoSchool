@@ -3,6 +3,8 @@ import styled from "@emotion/styled"
 import ContactForm from "../components/contact-form"
 import Phone from "../images/phone.svg"
 import Email from "../images/mail.svg"
+import { useStaticQuery, graphql } from "gatsby"
+import { StructuredText } from 'react-datocms';
 
 const Wrapper = styled.div`
 display: flex;
@@ -61,41 +63,39 @@ width: 100%;
 `
 
 export default function Hero(){
+    const data = useStaticQuery(graphql`
+        query HomepageContactQuery {
+            datoCmsHomepage {
+                contentLeft {
+                  value
+                }
+                formLabel1
+                formLabel2
+                formLabel3
+                formLabel4
+            }
+        }
+    `)
+    let c = data.datoCmsHomepage;
     return(
         <Wrapper>
             <div className="content-left">
             <div className="content-box">
-                    <h4><b>Booking Options</b></h4>
-                        <hr/>
-                        <p>1 hour private w/ own bike - $100</p>
-                        <hr/>
-                        <p>1 hour beginner group (max 4 people) - $200</p>
-                        <hr/>
-                        <p>4+ hour out-of-town option - $400</p>
-                        <hr/>
-                        <p>Track access only (must book in advance) - $20 per rider</p>
-                        <hr/>
-                        
-                    
-                    <h4><b>Bike and protective gear hire:</b></h4>
-                        <hr/>
-                        <p>Kids bike/gear hire - $20 per session</p>
-                        <hr/>
-                        <p>Beginner (electric) bike/gear hire - $20 per session</p>
-                        <hr/>
-                        <p>Intermediate bike/gear hire - $30 per session</p>
-                        <hr/>
-                        <p className="menu-subtext"><i>*Gear hire and associated payment made in person*</i></p>
-                    {/* <h4><b>Contact Us:</b></h4>
-                    <div className="contact-div">
-                    <p className="contact-paragraph"><img alt="telephone silhouette" src={Phone}/>021 304 228</p>
-                    <p className="contact-paragraph"><img alt="envolope silhouette" src={Email}/> motoschool@gmail.com</p>
-                    </div> */}
-                   
+                <StructuredText
+                        data={c.contentLeft.value}
+                        renderInlineRecord={({ record }) => {
+                            switch (record.__typename) {
+                            case 'DatoCmsArticle':
+                                return <a href={`/articles/${record.slug}`}>{record.title}</a>;
+                            default:
+                                return null;
+                            }
+                        }}
+                />
                 </div>
             </div>
             <div className="content-right">
-                <ContactForm/>
+                <ContactForm formLabel1={c.formLabel1} formLabel2={c.formLabel2} formLabel3={c.formLabel3} formLabel4={c.formLabel4}/>
             </div>
         </Wrapper>
     )

@@ -1,5 +1,8 @@
 import React from "react"
 import styled from "@emotion/styled"
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage} from "gatsby-plugin-image"
+import { StructuredText } from 'react-datocms';
 
 const Wrapper = styled.div`
 display: flex;
@@ -30,27 +33,37 @@ width: 100%;
 }
 `
 
-export default function Hero(){
+export default function Intro(){
+    const data = useStaticQuery(graphql`
+        query HomepageIntroQuery {
+            datoCmsHomepage {
+                introImage {
+                    gatsbyImageData
+                    alt
+                }
+                introText {
+                    value
+                }
+            }
+        }
+    `)
+    let c = data.datoCmsHomepage;
     return(
         <Wrapper>
-            <div className="content-left">Image Placeholder</div>
+            <GatsbyImage className="content-left" image={getImage(c.introImage.gatsbyImageData)} alt={c.introImage.alt} placeholder="blur"/>
+            {/* <div className="content-left">Image Placeholder</div> */}
             <div className="content-right">
-                <div className="content-box">
-                    <h2>Build Skills & Confidence Safely</h2>
-                    <p>Phil has 17+ years MX coaching experience and teaches riders at their pace and with safety at the forefront. </p>
-                </div>
-                <div className="content-box">
-                    <h2>Rental Bikes & Gear Provided</h2>
-                    <p>We have a range of bikes from 50cc for the kids, 150, 250 and also electric trails bikes and all the protective gear needed.</p>
-                </div>
-                <div className="content-box">
-                    <h2>Progress 6 Different Tracks</h2>
-                    <p>Tracks for all skill levels. We teach you the techniques needed to progress from our basic Oval to advanced circuits.</p>
-                </div>
-                <div className="content-box">
-                    <h2>Ride Gas or Electric</h2>
-                    <p>Our electric trials bikes are perfect for first timers! We also have traditional gas bikes from 50cc - 500cc for the bigger tracks.</p>
-                </div>
+            <StructuredText
+                data={c.introText.value}
+                renderInlineRecord={({ record }) => {
+                    switch (record.__typename) {
+                    case 'DatoCmsArticle':
+                        return <a href={`/articles/${record.slug}`}>{record.title}</a>;
+                    default:
+                        return null;
+                    }
+                }}
+            />
             </div>
         </Wrapper>
     )

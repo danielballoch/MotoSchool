@@ -1,5 +1,8 @@
 import React from "react"
 import styled from "@emotion/styled"
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage} from "gatsby-plugin-image"
+import { StructuredText } from 'react-datocms';
 
 const Wrapper = styled.div`
 display: flex;
@@ -30,21 +33,37 @@ width: 100%;
 }
 `
 
-export default function Hero(){
+export default function Who(){
+    const data = useStaticQuery(graphql`
+        query HomepageWhoQuery {
+            datoCmsHomepage {
+                coachText {
+                  value
+                }
+                coachImage {
+                  gatsbyImageData
+                  alt
+                }
+            }
+        }
+    `)
+    let c = data.datoCmsHomepage;
     return(
         <Wrapper>
-            <div className="content-left">Image Placeholder</div>
+            <GatsbyImage className="content-left" image={getImage(c.coachImage.gatsbyImageData)} alt={c.coachImage.alt} placeholder="blur"/>
             <div className="content-right">
                 <div className="content-box">
-                    <h2>Youth & Adult Motocross Coach</h2>
-                    <p>Phil Shilton takes all classes at MotoSchool Tauranga. His dad got him on a bike at 6, along with his sister, and he’s had a passion ever since. </p>
-                    <ul>
-                        <li>National and International MX/trials competitor</li>
-                        <li>Riding dirt bikes/trial bikes for 32 years </li>
-                        <li>Private coaching for 16+ years</li>
-                        <li>First aid trained </li>
-                    </ul>
-                    <p>Now with a young family passing on the lessons of the sport and building tracks at home has been a dream come true. Phil, his wife Suzy and their kids live right by the track and keep it maintained while also running their LawnFix lawn care business by day. </p>
+                    <StructuredText
+                        data={c.coachText.value}
+                        renderInlineRecord={({ record }) => {
+                            switch (record.__typename) {
+                            case 'DatoCmsArticle':
+                                return <a href={`/articles/${record.slug}`}>{record.title}</a>;
+                            default:
+                                return null;
+                            }
+                        }}
+                    />
                 </div>
             </div>
         </Wrapper>

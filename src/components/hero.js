@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
+import { useStaticQuery, graphql } from "gatsby"
 
 const Wrapper = styled.div`
 display: flex;
@@ -36,12 +37,22 @@ width: 100%;
 `
 
 export default function Hero(){
+    const data = useStaticQuery(graphql`
+        query HomeHeroQuery {
+            datoCmsHomepage {
+                heroTitle
+                heroBlurb
+                heroButton
+            }
+        }
+    `)
+    let c = data.datoCmsHomepage;
     return(
         <Wrapper>
             <div className="main-content">
-                <h1>Motocross Trails Training and Family Dirt Bike Fun.</h1>
-                <p>MX Coaching ages 4 to 104. For first-timers and speed demons alike; Bikes and safety gear available for hire.</p>
-                <button>View Booking Options</button>
+                <h1>{c.heroTitle}</h1>
+                <p>{c.heroBlurb}</p>
+                <button>{c.heroButton}</button>
             </div>
         </Wrapper>
     )
