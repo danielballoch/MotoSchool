@@ -323,6 +323,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
       for (let i = 0; i <= timesAvailable.length-1; i++){
           orderedTimes.push(timesAvailable[order[i][1]])
       }
+      console.log("testing: ", process.env.RECAPTCHA_SITE_KEY);
   return (
             <FormDiv>
                 <ReCAPTCHA 
