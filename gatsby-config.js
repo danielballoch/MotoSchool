@@ -7,7 +7,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `MotoSchool`,
-    siteUrl: `https://www.motoschool.co.nz`
+    siteUrl: `https://motoschool.netlify.app`
   },
   plugins: ["gatsby-plugin-image", "gatsby-plugin-sitemap", 
   {
