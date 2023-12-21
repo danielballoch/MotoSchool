@@ -42,7 +42,7 @@ export default async(req, res) => {
       res.json({ message: "Try a POST!" })
     }
     const message = {
-          to: "danielkingballoch@gmail.com",
+          to: "daniel@thoughtfulhq.com",
           templateId: 'd-ac2bbcc54a3047ae9da07bfd5dc77e21',
           from: {
             email: "daniel@thoughtfulhq.com",
