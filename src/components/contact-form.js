@@ -134,7 +134,7 @@ form {
         // margin: -40px;
         position: absolute;
         z-index: 100;
-        max-width: 700px;
+        max-width: 560px;
         width: 100vw;
         height: 0px;
         overflow: hidden;
@@ -153,7 +153,7 @@ form {
     .sent {
         color: black;
         transition: background-color .5s ease, color .5s ease;
-        height: 500px;
+        height: 580px;
         background-color: rgba(255,255,255,.9);
         p, h2 {
             transition: color .5s ease;
@@ -282,15 +282,18 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
         // console.log("this is where form data should log")
         // console.log(data)
         // console.log(token)
-        
-        
+        let dd = selectedDate.getDate();
+        let mm = selectedDate.getMonth()+1;
+        let yyyy = selectedDate.getFullYear();
+        let reformattedDate = dd+"/"+mm+"/"+yyyy;
+        console.log(reformattedDate)
         fetch(`/api/sendgrid`, {
           method: `POST`,
           body: JSON.stringify({
             name: data.Name,
             email: data.Email,
             lesson: data.Lesson,
-            date: selectedDate,
+            date: reformattedDate,
             time: orderedTimes[activeTime].time,
             token,
         }),
@@ -333,8 +336,8 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                 <form onSubmit={handleSubmit(onSubmit)} autocomplete="on">
                     <div className={serverState.formSent === true ? "message sent" : "message"}>
                         <div>
-                            <h2>Your message has been sent!</h2>
-                            <p>Thanks for enquiring with CoastSweep Chimney Cleaning. We'll be in touch as soon as possible.</p>
+                            <h2>Your booking request has been sent!</h2>
+                            <p>Please check your email and follow payment instructions to confirm you're MotoSchool booking.</p>
                         </div>
                     </div>
                     {/* <h2>{title}</h2> */}
