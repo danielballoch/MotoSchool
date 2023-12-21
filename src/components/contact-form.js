@@ -51,14 +51,23 @@ form {
     .time-selection {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
         div {
             // border: solid 1px black;
-            padding: 20px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 14px 14px;
             box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-            margin: 0 10px 10px 0;
+            margin: 0 0 10px 0;
             // background-color: grey;
             :hover {
                 cursor: pointer;
+            }
+            :last-of-type {
+                justify-self: start;
+                align-self: start;
+                margin-right: auto;
+                margin-left: 4px;
             }
         }
         .active-time {
@@ -226,7 +235,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
     ///need to reformat dates here before adding to state, or do in useEffect
 
     const reRef = useRef();
-    const [value, onChange] = useState(new Date());
+    const [selectedDate, updateSelectedDate] = useState(new Date());
     const [activeTime, setActiveTime] = useState(0)
     const [serverState, setServerState] = useState({formSent: false});
     const [bookedDates, setBookedDates] = useState([ [in3Days, in5Days],[in13Days, in15Days],])
@@ -279,9 +288,10 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
           method: `POST`,
           body: JSON.stringify({
             name: data.Name,
-            phone: data.Phone,
             email: data.Email,
-            message:data.Message,
+            lesson: data.Lesson,
+            date: selectedDate,
+            time: orderedTimes[activeTime].time,
             token,
         }),
           headers: {
@@ -315,11 +325,11 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
       }
   return (
             <FormDiv>
-                {/* <ReCAPTCHA 
+                <ReCAPTCHA 
                     sitekey={process.env.RECAPTCHA_SITE_KEY} 
                     size="invisible"
                     ref={reRef} 
-                /> */}
+                />
                 <form onSubmit={handleSubmit(onSubmit)} autocomplete="on">
                     <div className={serverState.formSent === true ? "message sent" : "message"}>
                         <div>
@@ -337,15 +347,22 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                         required  
                         {...register("Name", { required: true, maxLength: 100 })} 
                     />
-                    
-                    <label htmlFor="track">{formLabel2}</label>
+                    <label htmlFor="email">Contact Email</label>
+                    <input
+                        id="email"
+                        type="email" 
+                        name="email" 
+                        required  
+                        {...register("Email", { required: true, maxLength: 100 })} 
+                    />
+                    <label htmlFor="lesson">{formLabel2}</label>
                     <select
                     className="select-style"
-                         id="track"
-                         type="track" 
-                         name="track" 
+                         id="lesson"
+                         type="lesson" 
+                         name="lesson" 
                          required
-                         {...register("Track", { required: true})}
+                         {...register("Lesson", { required: true})}
                     >
                         <option>1 hour private w/ own bike - $100</option>
                         <option selected>1 hour beginner group (max 4 people) - $200</option>
@@ -371,7 +388,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                     <label htmlFor="bikes">{formLabel4}</label>
                     {/* <DRP /> */}
                     {/* <Calendar/> */}
-                    <DatePicker onChange={onChange} value={value} tileDisabled={tileDisabled} minDate={new Date()}/>
+                    <DatePicker onChange={updateSelectedDate} value={selectedDate} tileDisabled={tileDisabled} minDate={new Date()}/>
                     <label>Time Selection:</label>
                     <div className="time-selection">
                         {orderedTimes.map((time, i)=>(

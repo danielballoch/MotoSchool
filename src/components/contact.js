@@ -37,8 +37,8 @@ width: 100%;
         font-size: 14px;
         margin: 0;
     }
-    .menu-subtext {
-        font-size: 12px;
+    em {
+        font-size: 13px;
     }
     .contact-div {
         display: flex;

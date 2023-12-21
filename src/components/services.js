@@ -39,10 +39,20 @@ color: white;
         background-color: white;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         transition: .3s;
-        
+        img {
+            transition: .3s;
+            filter: brightness(110%); 
+            filter: contrast(110%);
+        }
         :hover {
             cursor: pointer;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            transform: scale(1.015);
+            img {
+                filter: brightness(110%); 
+                filter: contrast(110%);
+            }
+            
         }
         .level-content {
             box-sizing: border-box;
