@@ -8,7 +8,7 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY)
 //validate token through google
 async function validateHuman(token){
     // console.log("validate human running")
-const secret = process.env.RECAPTCHA_SECRET;
+const secret = process.env.GATSBY_RECAPTCHA_SECRET;
 const response = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
     {
         method: "POST",
