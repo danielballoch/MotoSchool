@@ -15,7 +15,7 @@ width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: grey;
+    background-color: white;
     color: white;
     width: 600px;
     height: 600px;

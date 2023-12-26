@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 display: flex;
 padding: 100px 0;
 justify-content: center;
-background-color: darkgrey;
+background-color: white;
 
 width: 100%;
 .content-left {

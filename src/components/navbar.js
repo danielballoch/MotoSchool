@@ -181,7 +181,7 @@ export default function Navbar({contact, invert}) {
                 <Link to="/" className="logo"><StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="nav-logo" src="../images/icon.png"/></Link>
                 <div className={invert? "nav-middle invert" : "nav-middle" }>
                     <Link className="active" to="/">Home</Link>
-                    <Link className="active" to="/">About</Link>
+                    <Link className="active" to="/">Trials Lessons</Link>
                     <Link to="/services" className="services">Our Tracks</Link>
                     <Link to="/why-coast-sweep">FAQ</Link>
                 </div>
