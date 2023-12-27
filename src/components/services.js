@@ -1,10 +1,10 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from "@emotion/styled"
-import { useStaticQuery, graphql } from "gatsby"
+import {useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
-display: flex;
+display: grid;
 flex-direction: column;
 background-color: rgba(0,0,0,0.7);
 justify-content: center;
@@ -12,11 +12,34 @@ align-items: center;
 height: 960px;
 width: 100%;
 color: white;
+overflow: hidden;
+.background-image {
+    grid-area: 1/1;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    // max-height: 100vh;
+    filter: blur(20px) brightness(50%);
+    transform: scale(1.1); 
+    
+}
+
+.content-wrapper {
+    
+    z-index: 200;
+    grid-area: 1/1;
+    position: relative;
+    place-items: center;
+    display: grid;
+    width: 100vw;
+    // max-height: 100vh;
+}
 .title-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     text-align: center;
     margin-bottom: 40px;
     h2 {
@@ -25,7 +48,8 @@ color: white;
     }
     p {
         font-size: 18px;
-        margin: 0;
+        margin: 10px 0 0 0;
+        max-width: 680px;
     }
 }
 .skill-level-wrapper {
@@ -85,6 +109,7 @@ color: white;
 `
 
 export default function Services(){
+    const [activeLesson, setActiveLesson] = useState(0)
     const data = useStaticQuery(graphql`
         query HomepageLessonsQuery {
             main: datoCmsHomepage {
@@ -117,22 +142,25 @@ export default function Services(){
     }
     return(
         <Wrapper>
-            <div className="title-wrapper">
-                <h2>{main.lessonsHeading}</h2>
-                <p>{main.lessonsSubheading}</p>
-            </div>
-            <div className="skill-level-wrapper">
-            {orderedLessons.map((lesson, i) => (
-                    <div className="skill-level">
-                    <GatsbyImage className="img" image={getImage(lesson.mainImage.gatsbyImageData)} alt={lesson.mainImage.alt} placeholder="blur"/>
-                    {/* <div className="img">Image Placeholder</div> */}
-                    <div className="level-content">
-                        <h3>{lesson.title}</h3>
-                        <p>{lesson.blurb}</p>
-                        <a>{lesson.buttonText}</a>
-                    </div>
+            <GatsbyImage className="background-image" image={getImage(orderedLessons[activeLesson].mainImage.gatsbyImageData)} alt={orderedLessons[activeLesson].mainImage.alt} placeholder="blur"/>
+            <div className="content-wrapper">
+                <div className="title-wrapper">
+                    <h2>{main.lessonsHeading}</h2>
+                    <p>{main.lessonsSubheading}</p>
                 </div>
-                ))}
+                <div className="skill-level-wrapper">
+                {orderedLessons.map((lesson, i) => (
+                        <div className="skill-level" onMouseEnter={() => setActiveLesson(i)}>
+                        <GatsbyImage className="img" image={getImage(lesson.mainImage.gatsbyImageData)} alt={lesson.mainImage.alt} placeholder="blur"/>
+                        {/* <div className="img">Image Placeholder</div> */}
+                        <div className="level-content">
+                            <h3>{lesson.title}</h3>
+                            <p>{lesson.blurb}</p>
+                            <a>{lesson.buttonText}</a>
+                        </div>
+                    </div>
+                    ))}
+                </div>
             </div>
         </Wrapper>
     )

@@ -8,14 +8,15 @@ const Wrapper = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: lightgrey;
+background-color: #122546;
+color: white;
 height: 960px;
 width: 100%;
 .content-left {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: grey;
+    
     color: white;
     width: 600px;
     height: 600px;
@@ -26,6 +27,7 @@ width: 100%;
     h2 {
         margin-top: 40px;
         margin-bottom: 0;
+        font-size: 50px;
     }
     p {
         font-size: 14px;

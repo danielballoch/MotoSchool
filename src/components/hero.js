@@ -44,12 +44,15 @@ width: 100%;
     height: fit-content;
     h1 {
         margin-top: 0;
+        margin-bottom: 0;
         padding-top: 100px;
-        font-size: 45px;
+        font-size: 42px;
         font-weight: 600px;
+        color: #111;
     }
     p {
         font-size: 18px;
+        margin-bottom: 40px;
     }
     button {
         width: 300px;
