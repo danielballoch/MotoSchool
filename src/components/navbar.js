@@ -50,12 +50,15 @@ justify-content: center;
         text-decoration: none;
         font-size: 18px;
     }
-    .nav-logo {
+    .logo {
         z-index: 800;
-        width: 100px;
-        height: 100px;
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-        border-radius: 50%;
+        color: black;
+        font-size: 30px;
+        font-weight: 600;
+        // width: 100px;
+        // height: 100px;
+        // box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        // border-radius: 50%;
     }
     .contact-us {
         padding: 15px 45px;
@@ -178,14 +181,16 @@ export default function Navbar({contact, invert}) {
     return (
     <Wrapper>
             <div className={menu? "wrapper fixed" : "wrapper"}>
-                <Link to="/" className="logo"><StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="nav-logo" src="../images/icon.png"/></Link>
+                <Link to="/" className="logo">
+                    {/* <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="nav-logo" src="../images/icon.png"/> */}
+                    MotoSchool</Link>
                 <div className={invert? "nav-middle invert" : "nav-middle" }>
                     <Link className="active" to="/">Home</Link>
                     <Link className="active" to="/">Trials Lessons</Link>
                     <Link to="/services" className="services">Our Tracks</Link>
-                    <Link to="/why-coast-sweep">FAQ</Link>
+                    <Link to="/why-coast-sweep">Support</Link>
                 </div>
-                <Link className="contact-us" to="/contact">Contact Us</Link>
+                {/* <Link className="contact-us" to="/contact">Contact Us</Link> */}
                 {/* <button className="menu" onClick={() => updateMenu(!menu)}>Menu</button> */}
                 <Hamburger invert={invert} clickFunction={() => updateMenu(!menu)}/>
                 <div className={menu ? "side-drawer" : "hide"}>
