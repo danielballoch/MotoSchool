@@ -6,7 +6,7 @@ import Phone from "../images/phone.svg"
 import Email from "../images/mail.svg"
 
 const Wrapper = styled.footer`
-position: absolute;
+position: relative;
 background-color: black;
 color: white;
 width: 100%;
@@ -15,7 +15,8 @@ flex-direction: column;
 justify-content: end;
 align-items: center;
 align-content: center;
-/* height: 150px; */
+bottom: 0;
+height: 150px;
 margin: auto;
 a {
     color: white;
@@ -26,11 +27,11 @@ a {
 .footer-content {
     display: flex;
     align-items: center;
+    height: 140px;
+    margin: 0;
     .nav {
         display: flex;
         flex-direction: row;
-        margin-top: 40px;
-        margin-bottom: 10px;
         a {
             font-size: 18px;
         }
@@ -66,12 +67,6 @@ a {
         }
     }
 }
-div {
-    :last-of-type {
-        margin-top: 40px;
-        margin-bottom: 10px;
-    }
-}
 .footer-logo {
 max-width: 200px;
 max-height: 200px;
@@ -80,28 +75,9 @@ height: 100%;
 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 margin: 0 30px;
 }
-@media(max-width: 970px){
-    .footer-content {
-        flex-direction: column;
-        align-items: start;
-    }
-    .bottom-footer {
-        font-size: 12px;
-        max-width: 470px;
-        width: 100%;
-        display: flex;
-        justify-content: start;
-        a {
-            padding: 0 10px;
-        }
-    }
 }
-@media(max-width:440px){
-    .footer-logo{
-        max-width: 200px;
-        max-height: 200px;
-    }
-    
+.bottom-footer {
+    margin: 10px;
 }
 `
 
@@ -109,17 +85,15 @@ export default function Footer() {
   return (
     <Wrapper>
         <div className="footer-content">
-            <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="footer-logo" src="../images/icon.png"/>
+            <h2>MotoSchool</h2>
+            {/* <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="footer-logo" src="../images/icon.png"/> */}
             <div className="nav">
                    <Link to="/">Home</Link>
+                   <Link to="/why-coast-sweep">Trials Lessons</Link>
                    <Link to="/why-coast-sweep">Our Tracks</Link>
                    <Link to="/contact">Support</Link>
-                   <Link to="/why-coast-sweep">Book a lesson</Link>
             </div>
-            <div className="main-content">
-                <h2>Book Your Trials Lesson Today!</h2>
-                <p>MX Coaching ages 4 to 104. For first-timers and speed demons alike; Bikes and safety gear available for hire.</p>
-            </div>
+
         </div>
         <div className="bottom-footer">
             <Link to="/">© MotoSchool 2023</Link>
