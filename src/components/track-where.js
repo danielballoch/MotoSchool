@@ -6,12 +6,33 @@ import { StructuredText } from 'react-datocms';
 
 const Wrapper = styled.div`
 display: flex;
-padding: 100px 0;
+padding: 150px 0;
 justify-content: center;
 background-color: white;
-
+min-height: 960px;
+height: 100vh;
+box-sizing: border-box;
 width: 100%;
+.title-rotate {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    position: absolute;
+    left: 0;
+    height: 100vh;
+    min-height: 960px;
+    margin-top: -150px;
+    h2 {
+        font-size: 100px;
+        padding: 0;
+        text-align: center;
+        margin: 0;
+        color: #122546;
+        opacity: 0.2;
+        line-height: 90%;
+    }
+}
 .content-left {
+    height: fit-content;
     max-width: 800px;
     b {
         margin-left: -18px;
@@ -98,6 +119,7 @@ export default function TrackWhere(){
     }
     return(
         <Wrapper>
+            <div className="title-rotate"><h2>TRACKS & TRAILS</h2></div>
             <div className="content-left">
                 <GatsbyImage className="image-placeholder" image={getImage(orderedTracks[active].mainImage.gatsbyImageData)} alt={orderedTracks[0].mainImage.alt} placeholder="blur"/>
                 {/* <div className="image-placeholder">Image Placeholder</div> */}

@@ -10,7 +10,9 @@ justify-content: center;
 align-items: center;
 background-color: #17181C;
 color: white;
-height: 960px;
+box-sizing: border-box;
+min-height: 960px;
+height: 100vh;
 width: 100%;
 .content-left {
     display: flex;

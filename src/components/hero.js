@@ -46,7 +46,7 @@ width: 100%;
         margin-top: 0;
         margin-bottom: 0;
         padding-top: 100px;
-        font-size: 42px;
+        font-size: 52px;
         font-weight: 600px;
         color: #111;
     }

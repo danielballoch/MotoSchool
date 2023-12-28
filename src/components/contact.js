@@ -12,7 +12,8 @@ display: grid;
 justify-content: center;
 align-items: center;
 background-color: grey;
-max-height: 100vh;
+min-height: 960px;
+height: 100vh;
 width: 100%;
 ::before {
     display: grid;
@@ -21,7 +22,7 @@ width: 100%;
     content: "";
     display: block;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(18,37,70, 0.8); /* Change the color and opacity as needed */
 }
 .background-image {
@@ -29,7 +30,7 @@ width: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-    max-height: 100vh;
+    height: 100%;
     filter: 
 }
 
@@ -39,7 +40,7 @@ width: 100%;
     position: relative;
     flex-direction: row;
     display: grid;
-    max-height: 100vh;
+    max-height: 100%;
     grid-template-areas: "left right";
     justify-content: center;
     align-items: center;
