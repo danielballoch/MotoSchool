@@ -215,6 +215,9 @@ form {
     }
     .time-selection {
         justify-content: start !important;
+        div {
+            margin: 0 10px 10px 0 !important;
+        }
     }
 }
 @media(max-width:380px){
@@ -223,6 +226,13 @@ form {
             font-size: 28px; 
         }
     }
+}
+#name , #email, #lesson, #select-style {
+    font-size: 16px;
+    padding: 5px;
+}
+#lesson, .react-date-picker__wrapper {
+    padding: 5px;
 }
 `
 
@@ -375,11 +385,9 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                          required
                          {...register("Lesson", { required: true})}
                     >
-                        <option>1 hour private w/ own bike - $100</option>
-                        <option selected>1 hour beginner group (max 4 people) - $200</option>
-                        <option>1 hour Intermediate groups (max 6 people) - $250</option>
-                        <option>4+ hour out-of-town option - $400 </option>
-                        <option>Track access only - $20 per rider</option>
+                        <option selected>30 minute lesson - $80</option>
+                        <option>1 hour lesson - $145</option>
+                        <option>Coaching only - $100 p/h</option>
                     </select>  
 
                     {/* <label htmlFor="bikes">{formLabel3}</label>
