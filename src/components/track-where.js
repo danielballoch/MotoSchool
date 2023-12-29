@@ -128,7 +128,7 @@ width: 100%;
 @media(max-width: 922px){
 .title-rotate {
     h2 {
-        font-size: 80px;
+        font-size: 70px;
     }
     
 }
