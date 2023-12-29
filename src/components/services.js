@@ -108,6 +108,17 @@ overflow: hidden;
     }
     
 }
+@media(max-width:1350px){
+    .skill-level-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+    .title-wrapper {
+        padding: 50px 50px 0 50px;
+    }
+    height: auto;
+}
 `
 
 export default function Services(){

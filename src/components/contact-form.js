@@ -13,7 +13,8 @@ import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
 
 const FormDiv = styled.div`
-max-width: 100vw;
+max-width: 100%;
+box-sizing: border-box;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -200,13 +201,20 @@ form {
     }
 }
 @media(max-width:600px){
+    width: 100%;
+    max-width: 100%;
     form {
-        max-width: 600px!important;
-        width: 100vw!important;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        padding: 20px 10px; 
     }
     .info-div {
-        width: 100vw;
+        // width: 100vw;
         padding: 20px;
+    }
+    .time-selection {
+        justify-content: start !important;
     }
 }
 @media(max-width:380px){

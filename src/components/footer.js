@@ -8,15 +8,17 @@ import Email from "../images/mail.svg"
 const Wrapper = styled.footer`
 position: relative;
 background-color: black;
+box-sizing: border-box;
 color: white;
 width: 100%;
+max-width: 100vw;
 display: flex;
 flex-direction: column;
 justify-content: end;
 align-items: center;
 align-content: center;
 bottom: 0;
-height: 150px;
+height: auto;
 margin: auto;
 a {
     color: white;
@@ -27,7 +29,7 @@ a {
 .footer-content {
     display: flex;
     align-items: center;
-    height: 140px;
+    height: auto;
     margin: 0;
     .nav {
         display: flex;
@@ -78,6 +80,23 @@ margin: 0 30px;
 }
 .bottom-footer {
     margin: 10px;
+}
+@media(max-width: 755px){
+    .footer-content {
+        flex-direction: column;
+    }
+    .nav {
+        flex-direction: column !important;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+}
+@media(max-width: 440px){
+    .bottom-footer {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
 }
 `
 

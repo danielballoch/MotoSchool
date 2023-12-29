@@ -34,6 +34,26 @@ width: 100%;
         font-size: 14px;
     }
 }
+@media(max-width:1100px){
+    flex-direction: column;
+    .content-right {
+        max-width: 600px;
+        padding: 0;
+        margin-bottom: 50px;
+    }
+    .content-left {
+        margin-top: 50px;
+    }
+}
+@media(max-width: 650px){
+    .content-left {
+        width: 100%;
+        margin-top: 0;
+    }
+    .content-right {
+        width: 90%; 
+    }
+}
 `
 
 export default function Intro(){

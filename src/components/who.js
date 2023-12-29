@@ -25,7 +25,7 @@ width: 100%;
 }
 .content-right {
     max-width: 400px;
-    padding-left: 40px;
+    padding: 0 40px;
     h2 {
         margin-top: 40px;
         margin-bottom: 0;
@@ -34,6 +34,29 @@ width: 100%;
     p {
         font-size: 14px;
     }
+}
+@media(max-width:860px){
+    flex-direction: column;
+    height: auto;
+    .content-left {
+        width: 100%;
+        img {
+            object-position: 50% 0%;
+        }   
+    }
+    .content-right {
+        margin-bottom: 50px;
+        h2 {
+            font-size: 40px;
+        }
+    }
+}
+@media(max-width: 385px){
+.content-right {
+    h2 {
+        font-size: 35px;
+    }
+}
 }
 `
 

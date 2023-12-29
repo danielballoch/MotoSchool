@@ -27,7 +27,7 @@ width: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-    max-height: 100vh;
+    height: 100%;
 }
 
 .content-wrapper {
@@ -70,6 +70,27 @@ width: 100%;
         }
     }
 }
+@media(max-width: 1000px){
+    .main-content {
+        padding-right: 0; 
+    }
+}
+@media(max-width: 640px){
+    .main-content {
+        width: 95%;
+        padding: 40px;
+        box-sizing: border-box;
+        h1 {
+            font-size: 42px;
+        }
+    }
+}
+@media(max-width: 387px){
+    .main-content {
+        h1 {
+            font-size: 37px;
+        }
+    }
 `
 
 export default function Hero(){

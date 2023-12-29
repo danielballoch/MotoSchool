@@ -82,6 +82,57 @@ width: 100%;
     justify-content: center;
     align-items: center;
 }
+.content-left-mobile {
+ display: none;       
+}
+@media(max-width: 1270px){
+    flex-direction: column;
+    height: auto;
+    padding: 50px 0;
+    .title-rotate {
+        writing-mode: unset;
+        text-orientation: unset;
+        position: relative;
+        height: fit-content;
+        min-height: unset;
+        margin-top: 0;
+    }
+    .content-left {
+        display: none;
+    }
+    .content-left-mobile {
+        display: flex;
+        margin-top: 50px;
+        .mobile-track-item {
+            width: 90%;
+            margin: 0 auto 50px auto;
+            .image-placeholder {
+                width: 100%;
+            }
+        }
+    }
+    .content-right {
+        max-width: 90%;
+        padding-left: 0;
+        margin: auto;
+        .image-placeholder {
+            width: 100%;
+            border: none;
+        }
+        .content-box {
+            margin-top: 30px;
+            padding: 0;
+        }
+    }
+}
+@media(max-width: 922px){
+.title-rotate {
+    h2 {
+        font-size: 80px;
+    }
+    
+}
+}
 `
 
 export default function TrackWhere(){
@@ -126,6 +177,16 @@ export default function TrackWhere(){
                 <div className="track-list">
                     {orderedTracks.map((track, i) => (
                         <div onClick={() => setActive(i)} className={active === i? "track-text active" : "track-text"}><p><b>{track.trackName}: </b>{track.trackBlurb}</p></div>
+                    ))}
+                </div>
+            </div>
+            <div className="content-left-mobile">
+                <div className="track-list">
+                    {orderedTracks.map((track, i) => (
+                        <div className="mobile-track-item">
+                            <GatsbyImage className="image-placeholder" image={getImage(track.mainImage.gatsbyImageData)} alt={track.mainImage.alt} placeholder="blur"/>
+                            <div onClick={() => setActive(i)} className={active === i? "track-text active" : "track-text"}><p><b>{track.trackName}: </b>{track.trackBlurb}</p></div>
+                        </div>
                     ))}
                 </div>
             </div>

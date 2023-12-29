@@ -14,20 +14,21 @@ align-items: center;
 background-color: grey;
 min-height: 960px;
 height: 100vh;
-width: 100%;
+width: 100vw;
+box-sizing: border-box;
 ::before {
     display: grid;
     grid-area: 1/1;
     z-index: 100;
     content: "";
     display: block;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     background-color: rgba(18,37,70, 0.8); /* Change the color and opacity as needed */
 }
 .background-image {
     grid-area: 1/1;
-    width: 100%;
+    width: 100vw;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -41,11 +42,8 @@ width: 100%;
     flex-direction: row;
     display: grid;
     max-height: 100%;
-    grid-template-areas: "left right";
     justify-content: center;
     align-items: center;
-}
-.content-right {
 }
 .content-left {
     justify-self: end;
@@ -92,6 +90,33 @@ width: 100%;
 .content-right {
     padding: 20px;
 }
+.content {
+    display: flex;
+    justify-content: center;
+    max-width: 100vw;
+    align-items: center;
+}
+@media(max-width:980px){
+    height: auto;
+    .content-wrapper {
+        width: 90%;
+        margin: auto;
+        .content {
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 0;
+            .content-left {
+                justify-self: center;
+                margin-bottom: 50px;
+            }
+            .content-right {
+                width: 90%;
+            }
+        }
+    }   
+}
 `
 
 export default function Hero(){
@@ -130,23 +155,25 @@ export default function Hero(){
         <Wrapper>
             <GatsbyImage className="background-image" image={getImage(c.introImage.gatsbyImageData)} alt={c.introImage.alt} placeholder="blur"/>
             <div className="content-wrapper">
-                <div className="content-left">
-                    <div className="content-box">
-                    <StructuredText
-                            data={c.contentLeft.value}
-                            renderInlineRecord={({ record }) => {
-                                switch (record.__typename) {
-                                case 'DatoCmsArticle':
-                                    return <a href={`/articles/${record.slug}`}>{record.title}</a>;
-                                default:
-                                    return null;
-                                }
-                            }}
-                    />
+                <div className="content">
+                    <div className="content-left">
+                        <div className="content-box">
+                        <StructuredText
+                                data={c.contentLeft.value}
+                                renderInlineRecord={({ record }) => {
+                                    switch (record.__typename) {
+                                    case 'DatoCmsArticle':
+                                        return <a href={`/articles/${record.slug}`}>{record.title}</a>;
+                                    default:
+                                        return null;
+                                    }
+                                }}
+                        />
+                        </div>
                     </div>
-                </div>
-                <div className="content-right">
-                    <ContactForm formLabel1={c.formLabel1} formLabel2={c.formLabel2} formLabel3={c.formLabel3} formLabel4={c.formLabel4} timesAvailable={timesAvailable} datesUnavailable={datesUnavailable}/>
+                    <div className="content-right">
+                        <ContactForm formLabel1={c.formLabel1} formLabel2={c.formLabel2} formLabel3={c.formLabel3} formLabel4={c.formLabel4} timesAvailable={timesAvailable} datesUnavailable={datesUnavailable}/>
+                    </div>
                 </div>
             </div>
         </Wrapper>
