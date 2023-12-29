@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
@@ -115,7 +115,7 @@ export default function Hero(){
                 <div className="main-content">
                     <h1>{c.heroTitle}</h1>
                     <p>{c.heroBlurb}</p>
-                    <button>{c.heroButton}</button>
+                    <Link to="#booking-options"><button>{c.heroButton}</button></Link>
                 </div>
             </div>
         </Wrapper>

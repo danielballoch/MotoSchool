@@ -169,7 +169,7 @@ export default function TrackWhere(){
         orderedTracks.push(tracks[order[i][1]])
     }
     return(
-        <Wrapper>
+        <Wrapper id="our-tracks">
             <div className="title-rotate"><h2>TRACKS & TRAILS</h2></div>
             <div className="content-left">
                 <GatsbyImage className="image-placeholder" image={getImage(orderedTracks[active].mainImage.gatsbyImageData)} alt={orderedTracks[0].mainImage.alt} placeholder="blur"/>

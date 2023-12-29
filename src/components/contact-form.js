@@ -368,7 +368,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                         required  
                         {...register("Name", { required: true, maxLength: 100 })} 
                     />
-                    <label htmlFor="email">Contact Email</label>
+                    <label htmlFor="email">Contact Email:</label>
                     <input
                         id="email"
                         type="email" 

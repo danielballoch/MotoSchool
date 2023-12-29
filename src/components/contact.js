@@ -152,7 +152,7 @@ export default function Hero(){
     let timesAvailable = data.times.nodes
     let datesUnavailable = data.unavailable.nodes
     return(
-        <Wrapper>
+        <Wrapper id="booking-options">
             <GatsbyImage className="background-image" image={getImage(c.introImage.gatsbyImageData)} alt={c.introImage.alt} placeholder="blur"/>
             <div className="content-wrapper">
                 <div className="content">

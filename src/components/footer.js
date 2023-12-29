@@ -104,13 +104,13 @@ export default function Footer() {
   return (
     <Wrapper>
         <div className="footer-content">
-            <h2>MotoSchool</h2>
+            <Link to="/"><h2>MotoSchool</h2></Link>
             {/* <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="footer-logo" src="../images/icon.png"/> */}
             <div className="nav">
                    <Link to="/">Home</Link>
-                   <Link to="/why-coast-sweep">Trials Lessons</Link>
-                   <Link to="/why-coast-sweep">Our Tracks</Link>
-                   <Link to="/contact">Support</Link>
+                   <Link to="/#trials-lessons">Trials Lessons</Link>
+                   <Link to="/#our-tracks">Our Tracks</Link>
+                   <Link to="/support">Support</Link>
             </div>
 
         </div>

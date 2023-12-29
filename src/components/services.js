@@ -154,7 +154,7 @@ export default function Services(){
         orderedLessons.push(lessons[order[i][1]])
     }
     return(
-        <Wrapper>
+        <Wrapper id="trials-lessons">
             <GatsbyImage className="background-image" image={getImage(orderedLessons[activeLesson].mainImage.gatsbyImageData)} alt={orderedLessons[activeLesson].mainImage.alt} placeholder="blur"/>
             <div className="content-wrapper">
                 <div className="title-wrapper">

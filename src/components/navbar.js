@@ -186,18 +186,18 @@ export default function Navbar({contact, invert}) {
                     MotoSchool</Link>
                 <div className={invert? "nav-middle invert" : "nav-middle" }>
                     <Link className="active" to="/">Home</Link>
-                    <Link className="active" to="/">Trials Lessons</Link>
-                    <Link to="/services" className="services">Our Tracks</Link>
-                    <Link to="/why-coast-sweep">Support</Link>
+                    <Link className="active" to="#trials-lessons">Trials Lessons</Link>
+                    <Link to="#our-tracks" className="services">Our Tracks</Link>
+                    <Link to="/support">Support</Link>
                 </div>
                 {/* <Link className="contact-us" to="/contact">Contact Us</Link> */}
                 {/* <button className="menu" onClick={() => updateMenu(!menu)}>Menu</button> */}
                 <Hamburger invert={invert} clickFunction={() => updateMenu(!menu)}/>
                 <div className={menu ? "side-drawer" : "hide"}>
-                    <Link className="active" to="/">HOME</Link>
-                    <Link to="/services" className="services">About</Link>
+                    <Link className="active" to="/">Home</Link>
+                    <Link to="/services" className="services">Trial Lessons</Link>
                     <Link to="/why-coast-sweep">Our Tracks</Link>
-                    <Link to="/contact">Booking Options</Link>
+                    <Link to="/support">Support</Link>
                 </div>
             </div>
     </Wrapper>
