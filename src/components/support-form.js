@@ -240,12 +240,14 @@ export default function ContactElectrical(){
         const token = await reRef.current.executeAsync();
         reRef.current.reset();
 
-        fetch(`/api/sendgrid`, {
+        fetch(`/api/sendgridsupport`, {
           method: `POST`,
           body: JSON.stringify({
             name: data.Name,
             email: data.Email,
-            message: data.Message
+            phone: data.Phone,
+            message: data.Message,
+            token
         }),
           headers: {
             "content-type": `application/json`,
