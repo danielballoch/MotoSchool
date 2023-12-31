@@ -207,7 +207,7 @@ form {
         box-sizing: border-box;
         width: 100%;
         max-width: 100%;
-        padding: 20px 10px; 
+        padding: 30px 30px 20px 30px; 
     }
     .info-div {
         // width: 100vw;

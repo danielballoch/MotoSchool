@@ -185,18 +185,18 @@ export default function Navbar({contact, invert}) {
                     {/* <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="nav-logo" src="../images/icon.png"/> */}
                     MotoSchool</Link>
                 <div className={invert? "nav-middle invert" : "nav-middle" }>
-                    <Link className="active" to="/">Home</Link>
-                    <Link className="active" to="#trials-lessons">Trials Lessons</Link>
-                    <Link to="#our-tracks" className="services">Our Tracks</Link>
+                    <Link to="/">Home</Link>
+                    <Link to="#trials-lessons">Trials Lessons</Link>
+                    <Link to="#our-tracks">Our Tracks</Link>
                     <Link to="/support">Support</Link>
                 </div>
                 {/* <Link className="contact-us" to="/contact">Contact Us</Link> */}
                 {/* <button className="menu" onClick={() => updateMenu(!menu)}>Menu</button> */}
                 <Hamburger invert={invert} clickFunction={() => updateMenu(!menu)}/>
                 <div className={menu ? "side-drawer" : "hide"}>
-                    <Link className="active" to="/">Home</Link>
-                    <Link to="/services" className="services">Trial Lessons</Link>
-                    <Link to="/why-coast-sweep">Our Tracks</Link>
+                    <Link  to="/">Home</Link>
+                    <Link to="#trials-lessons">Trial Lessons</Link>
+                    <Link to="#our-tracks">Our Tracks</Link>
                     <Link to="/support">Support</Link>
                 </div>
             </div>

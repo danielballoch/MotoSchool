@@ -112,7 +112,7 @@ box-sizing: border-box;
                 margin-bottom: 50px;
             }
             .content-right {
-                width: 90%;
+                width: 95%;
             }
         }
     }   
