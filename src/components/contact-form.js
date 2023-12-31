@@ -230,6 +230,8 @@ form {
 #name , #email, #lesson, #select-style {
     font-size: 16px;
     padding: 5px;
+    border: solid 1px black;
+    border-radius: 0;
 }
 #lesson, .react-date-picker__wrapper {
     padding: 5px;

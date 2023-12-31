@@ -109,7 +109,7 @@ h3 {
     align-items: start;
 }
 .arrow {
-  margin-top: 14px;
+  margin-top: 4px;
   transition: .2s;
   height: 3px;
   width: 3px;
