@@ -186,8 +186,8 @@ export default function Navbar({contact, invert}) {
                     MotoSchool</Link>
                 <div className={invert? "nav-middle invert" : "nav-middle" }>
                     <Link to="/">Home</Link>
-                    <Link to="#trials-lessons">Trials Lessons</Link>
-                    <Link to="#our-tracks">Our Tracks</Link>
+                    <Link to="/#trials-lessons">Trials Lessons</Link>
+                    <Link to="/#our-tracks">Our Tracks</Link>
                     <Link to="/support">Support</Link>
                 </div>
                 {/* <Link className="contact-us" to="/contact">Contact Us</Link> */}
@@ -195,8 +195,8 @@ export default function Navbar({contact, invert}) {
                 <Hamburger invert={invert} clickFunction={() => updateMenu(!menu)}/>
                 <div className={menu ? "side-drawer" : "hide"}>
                     <Link  to="/">Home</Link>
-                    <Link to="#trials-lessons">Trial Lessons</Link>
-                    <Link to="#our-tracks">Our Tracks</Link>
+                    <Link to="/#trials-lessons">Trial Lessons</Link>
+                    <Link to="/#our-tracks">Our Tracks</Link>
                     <Link to="/support">Support</Link>
                 </div>
             </div>

@@ -97,6 +97,10 @@ export default function Hero(){
     const data = useStaticQuery(graphql`
         query HomeHeroQuery {
             datoCmsHomepage {
+                heroBackground {
+                    gatsbyImageData
+                    alt
+                }
                 heroTitle
                 heroBlurb
                 heroButton
@@ -110,7 +114,7 @@ export default function Hero(){
     let c = data.datoCmsHomepage;
     return(
         <Wrapper>
-            <GatsbyImage className="background-image" image={getImage(c.introImage.gatsbyImageData)} alt={c.introImage.alt} placeholder="blur"/>
+            <GatsbyImage className="background-image" image={getImage(c.heroBackground.gatsbyImageData)} alt={c.heroBackground.alt} placeholder="blur"/>
             <div className="content-wrapper">
                 <div className="main-content">
                     <h1>{c.heroTitle}</h1>

@@ -123,6 +123,10 @@ export default function Hero(){
     const data = useStaticQuery(graphql`
         query HomepageContactQuery {
             home: datoCmsHomepage {
+                contactBackground {
+                    gatsbyImageData
+                    alt
+                }
                 contentLeft {
                   value
                 }
@@ -130,10 +134,6 @@ export default function Hero(){
                 formLabel2
                 formLabel3
                 formLabel4
-                introImage {
-                    gatsbyImageData
-                    alt
-                }
             }
             times: allDatoCmsTimesAvailable {
                 nodes {
@@ -153,7 +153,7 @@ export default function Hero(){
     let datesUnavailable = data.unavailable.nodes
     return(
         <Wrapper id="booking-options">
-            <GatsbyImage className="background-image" image={getImage(c.introImage.gatsbyImageData)} alt={c.introImage.alt} placeholder="blur"/>
+            <GatsbyImage className="background-image" image={getImage(c.contactBackground.gatsbyImageData)} alt={c.contactBackground.alt} placeholder="blur"/>
             <div className="content-wrapper">
                 <div className="content">
                     <div className="content-left">

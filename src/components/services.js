@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import styled from "@emotion/styled"
-import {useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 
 const Wrapper = styled.div`
@@ -60,6 +60,8 @@ overflow: hidden;
     color: black;
     .skill-level {
         // border: solid 10px white;
+        color: black;
+        text-decoration: none;
         width: 300px;
         margin: 10px;
         background-color: white;
@@ -131,6 +133,7 @@ export default function Services(){
             }
             lessons: allDatoCmsLessonLevel {
                 nodes {
+                  urlPath
                   title
                   blurb
                   buttonText
@@ -163,7 +166,7 @@ export default function Services(){
                 </div>
                 <div className="skill-level-wrapper">
                 {orderedLessons.map((lesson, i) => (
-                        <div className="skill-level" onMouseEnter={() => setActiveLesson(i)}>
+                        <Link to={"/" + lesson.urlPath + "#top"} className="skill-level" onMouseEnter={() => setActiveLesson(i)}>
                         <GatsbyImage className="img" image={getImage(lesson.mainImage.gatsbyImageData)} alt={lesson.mainImage.alt} placeholder="blur"/>
                         {/* <div className="img">Image Placeholder</div> */}
                         <div className="level-content">
@@ -171,7 +174,7 @@ export default function Services(){
                             <p>{lesson.blurb}</p>
                             <a>{lesson.buttonText}</a>
                         </div>
-                    </div>
+                    </Link>
                     ))}
                 </div>
             </div>
