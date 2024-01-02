@@ -70,12 +70,16 @@ div {
     overflow: hidden;
     padding: 0;
     margin: 10px 0;
-    max-height: 300px;
+    border-left: 15px solid #4a9c2d;
+    // max-height: 300px;
+    p {
+        margin: 10px;
+    }
     /* background-color: #f8f8f8; */
 }
 @media(max-width: 940px){
     width: 80%;
-    margin: 100px auto auto;
+    margin: 100px auto 20px;
 }
 `
 const ContentBox = styled.div`
@@ -104,13 +108,15 @@ h3 {
     width: 100%;
     display: flex;
     margin: 0;
+    
     justify-content: space-between;
     /* align-items: center; */
     align-items: start;
 }
 .arrow {
-  margin-top: 4px;
+  margin-top: 5px;
   transition: .2s;
+  margin-left: 20px;
   height: 3px;
   width: 3px;
   border: solid black;
