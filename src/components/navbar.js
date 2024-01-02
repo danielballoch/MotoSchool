@@ -194,10 +194,10 @@ export default function Navbar({contact, invert}) {
                 {/* <button className="menu" onClick={() => updateMenu(!menu)}>Menu</button> */}
                 <Hamburger invert={invert} clickFunction={() => updateMenu(!menu)}/>
                 <div className={menu ? "side-drawer" : "hide"}>
-                    <Link  to="/">Home</Link>
-                    <Link to="/#trials-lessons">Trial Lessons</Link>
-                    <Link to="/#our-tracks">Our Tracks</Link>
-                    <Link to="/support">Support</Link>
+                    <Link  onClick={() => updateMenu(false)} to="/">Home</Link>
+                    <Link onClick={() => updateMenu(false)} to="/#trials-lessons">Trial Lessons</Link>
+                    <Link onClick={() => updateMenu(false)} to="/#our-tracks">Our Tracks</Link>
+                    <Link onClick={() => updateMenu(false)} to="/support">Support</Link>
                 </div>
             </div>
     </Wrapper>
