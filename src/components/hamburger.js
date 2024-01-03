@@ -60,10 +60,10 @@ body {
   }
 `
 
-export default function Hamburger({clickFunction, invert}){
-    const [toggle, setToggle] = useState(false)
+export default function Hamburger({clickFunction, invert, toggle}){
+    
     return (
-        <Wrapper onClick={() => {setToggle(!toggle); clickFunction()}}>
+        <Wrapper onClick={() => {clickFunction()}}>
             <svg className={toggle? "ham hamRotate ham4 active" : invert ? "ham hamRotate ham4 invert" : "ham hamRotate ham4"} viewBox="0 0 100 100" width="80">
             <path
                     class="line top"

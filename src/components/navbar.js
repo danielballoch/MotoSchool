@@ -178,6 +178,7 @@ justify-content: center;
 
 export default function Navbar({contact, invert}) {
     const [menu, updateMenu] = useState(false);
+    const [toggle, updateToggle] = useState(false);
     return (
     <Wrapper>
             <div className={menu? "wrapper fixed" : "wrapper"}>
@@ -192,12 +193,12 @@ export default function Navbar({contact, invert}) {
                 </div>
                 {/* <Link className="contact-us" to="/contact">Contact Us</Link> */}
                 {/* <button className="menu" onClick={() => updateMenu(!menu)}>Menu</button> */}
-                <Hamburger invert={invert} clickFunction={() => updateMenu(!menu)}/>
+                <Hamburger invert={invert} toggle={toggle} clickFunction={() => {updateMenu(!menu); updateToggle(!toggle)}}/>
                 <div className={menu ? "side-drawer" : "hide"}>
-                    <Link  onClick={() => updateMenu(false)} to="/">Home</Link>
-                    <Link onClick={() => updateMenu(false)} to="/#trials-lessons">Trial Lessons</Link>
-                    <Link onClick={() => updateMenu(false)} to="/#our-tracks">Our Tracks</Link>
-                    <Link onClick={() => updateMenu(false)} to="/support">Support</Link>
+                    <Link  onClick={() => {updateMenu(!menu); updateToggle(!toggle)}} to="/">Home</Link>
+                    <Link onClick={() => {updateMenu(!menu); updateToggle(!toggle)}} to="/#trials-lessons">Trial Lessons</Link>
+                    <Link onClick={() => {updateMenu(!menu); updateToggle(!toggle)}} to="/#our-tracks">Our Tracks</Link>
+                    <Link onClick={() => {updateMenu(!menu); updateToggle(!toggle)}} to="/support">Support</Link>
                 </div>
             </div>
     </Wrapper>
