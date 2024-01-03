@@ -52,23 +52,17 @@ form {
     .time-selection {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        // justify-content: space-between;
         div {
             // border: solid 1px black;
             font-size: 13px;
             font-weight: 600;
             padding: 14px 14px;
             box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-            margin: 0 0 10px 0;
+            margin: 0 10px 10px 0;
             // background-color: grey;
             :hover {
                 cursor: pointer;
-            }
-            :last-of-type {
-                justify-self: start;
-                align-self: start;
-                margin-right: auto;
-                margin-left: 4px;
             }
         }
         .active-time {
@@ -214,7 +208,7 @@ form {
         padding: 20px;
     }
     .time-selection {
-        justify-content: start !important;
+        // justify-content: start !important;
         div {
             margin: 0 10px 10px 0 !important;
         }
