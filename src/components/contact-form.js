@@ -12,6 +12,7 @@ import DatePicker from 'react-date-picker'
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
 
+
 const FormDiv = styled.div`
 max-width: 100%;
 box-sizing: border-box;
@@ -39,7 +40,7 @@ form {
     flex-direction: column;
     justify-content: center;
     .react-date-picker__inputGroup__input {
-        min-width: 1.2em!important;
+        // min-width: 1.2em!important;
     }
     .react-calendar__tile--active, .react-calendar__tile:enabled:hover {
         background-color: #4a9c2d!important;
@@ -403,7 +404,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                     <label htmlFor="bikes">{formLabel4}</label>
                     {/* <DRP /> */}
                     {/* <Calendar/> */}
-                    <DatePicker onChange={updateSelectedDate} value={selectedDate} tileDisabled={tileDisabled} minDate={new Date()}/>
+                    <DatePicker onChange={updateSelectedDate} value={selectedDate} tileDisabled={tileDisabled} minDate={new Date()} format="dd-MM-y"/>
                     <label>Time Selection:</label>
                     <div className="time-selection">
                         {orderedTimes.map((time, i)=>(
