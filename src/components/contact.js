@@ -42,6 +42,7 @@ box-sizing: border-box;
     flex-direction: row;
     display: grid;
     max-height: 100%;
+    width: 100vw;
     justify-content: center;
     align-items: center;
 }

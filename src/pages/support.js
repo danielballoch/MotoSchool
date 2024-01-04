@@ -10,11 +10,13 @@ import { GatsbyImage, getImage} from "gatsby-plugin-image"
 const Wrapper = styled.div`
 display: flex;
 flex-direction: column;
+width: 100vw;
 .contact-wrapper {
   display: grid;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
   ::before {
     display: grid;
@@ -28,7 +30,7 @@ flex-direction: column;
     }
     .background-image {
         grid-area: 1/1;
-        width: 100vw;
+        width: 100%;
         margin: 0;
         padding: 0;
         height: 100%;

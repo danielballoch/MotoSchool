@@ -231,6 +231,39 @@ form {
 #lesson, .react-date-picker__wrapper {
     padding: 5px;
 }
+.lesson-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    font-size: 16px;
+    select {
+        padding: 5px;
+        font-size: 16px;
+    }
+}
+.option-div {
+    width: 50%;
+    select {
+        width: 90%;
+    }
+    label {
+        width: 90%;
+    }
+    :last-of-type {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        
+    }
+}
+.lesson-hours-div {
+    margin-top: 20px;
+    select {
+        font-size: 16px;
+        width: 100%;
+    }
+}
 `
 
 
@@ -254,6 +287,17 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
     const [activeTime, setActiveTime] = useState(0)
     const [serverState, setServerState] = useState({formSent: false});
     const [bookedDates, setBookedDates] = useState([ [in3Days, in5Days],[in13Days, in15Days],])
+    const [totalPrice, setTotalPrice] = useState(80)
+    const [lessonPrice, setLessonPrice] = useState(80)
+    const [gearPrice, setGearPrice] = useState(0)
+    const [bikeCost, setBikeCost] = useState(0)
+    const [hourCost, setHourCost] = useState(0)
+
+    useEffect(() => {
+        console.log("update price")
+        if (lessonPrice === 100){setGearPrice(0); setBikeCost(0)} else {setHourCost(0)}
+        setTotalPrice(lessonPrice + gearPrice + bikeCost + hourCost)
+    },[lessonPrice, gearPrice, bikeCost, hourCost])
     
     useEffect(()=> {
         console.log(datesUnavailable[0].bookedDate)
@@ -382,25 +426,64 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                          required
                          {...register("Lesson", { required: true})}
                     >
-                        <option selected>30 minute lesson - $80</option>
-                        <option>1 hour lesson - $145</option>
-                        <option>Coaching only - $100 p/h</option>
-                    </select>  
+                        <option onClick={() => setLessonPrice(80)} selected>30 minute lesson - $80</option>
+                        <option onClick={() => setLessonPrice(145)}>1 hour lesson - $145</option>
+                        <option onClick={() => setLessonPrice(100)}>Coaching only - $100 p/h</option>
+                    </select>
+                    
 
-                    {/* <label htmlFor="bikes">{formLabel3}</label>
-                    <select
-                    className="select-style"
-                         id="bikes"
-                         type="bikes" 
-                         name="bikes" 
-                         required
-                         {...register("Bikes", { required: true})}
-                    >
-                        <option selected>Need to hire</option>
-                        <option>Bringing Own Bikes</option>
-                        <option>Mixed</option>
-                    </select>   */}
 
+                    {lessonPrice !== 100?
+                        <div className="lesson-options">
+                        <div className="option-div">
+                            <label htmlFor="gear">Gear Hire:</label>
+                            <select
+                            className="select-style"
+                                id="gear"
+                                type="gear" 
+                                name="gear" 
+                                required
+                                {...register("Gear", { required: true})}
+                            >
+                                <option onClick={() => setGearPrice(0)} selected>1 Set - (included)</option>
+                                <option onClick={() => setGearPrice(15)}>2 Sets - $15</option>
+                                <option onClick={() => setGearPrice(30)}>3 Sets - $30</option>
+                                <option onClick={() => setGearPrice(45)}>4 Sets - $45</option>
+                            </select> 
+                        </div>
+                        <div className="option-div">
+                            <label htmlFor="bike">Bike Hire:</label>
+                            <select
+                            className="select-style"
+                                id="bike"
+                                type="bike" 
+                                name="bike" 
+                                required
+                                {...register("Bike", { required: true})}
+                            >
+                                <option onClick={() => setBikeCost(0)} selected>1 bike - (included)</option>
+                                <option onClick={() => setBikeCost(45)}>2 bikes - $45</option>
+                                <option onClick={() => setBikeCost(90)}>3 bikes - $90</option>
+                                <option onClick={() => setBikeCost(135)}>4 bikes - $135</option>
+                            </select> 
+                            </div>
+                        </div>
+                    : 
+                        <div className="lesson-hours-div">
+                            <label htmlFor="hours">Lesson Hours:</label>
+                            <select
+                            className="select-style"
+                                 id="hours"
+                                 type="hours" 
+                                 name="hours" 
+                                 required
+                                 {...register("Hours", { required: true})}
+                            >
+                                <option onClick={() => setHourCost(0)}>1 hour</option>
+                                <option onClick={() => setHourCost(100)}>2 hours</option>
+                                <option onClick={() => setHourCost(200)}>3 hours</option>
+                            </select>     
+                        </div>}
                     <label htmlFor="bikes">{formLabel4}</label>
                     {/* <DRP /> */}
                     {/* <Calendar/> */}
@@ -411,6 +494,8 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                             <div onClick={()=>setActiveTime(i)} className={i === activeTime ? "active-time" : ""}>{time.time}</div>
                         ))}
                     </div>
+
+                    <h3>Total: ${totalPrice}</h3>
                        
                     
                     <button
