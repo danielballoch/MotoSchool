@@ -354,6 +354,10 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
             lesson: data.Lesson,
             date: reformattedDate,
             time: orderedTimes[activeTime].time,
+            gear: data.Gear,
+            bike: data.Bike,
+            hours: data.Hours,
+            totalPrice: totalPrice,
             token,
         }),
           headers: {

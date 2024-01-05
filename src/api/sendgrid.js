@@ -41,6 +41,9 @@ export default async(req, res) => {
     if (req.method !== "POST") {
       res.json({ message: "Try a POST!" })
     }
+    let option = "No options selected"
+    let optionValue = ""
+    if (req.body.hours){option = "Lesson Hours: "; optionValue = req.body.hours} else {option = "Rental Bikes & Gear: "; optionValue = req.body.bike + ", " + req.body.gear}
     const message = {
           to: "daniel@thoughtfulhq.com",
           templateId: 'd-ac2bbcc54a3047ae9da07bfd5dc77e21',
@@ -56,6 +59,9 @@ export default async(req, res) => {
             lesson: req.body.lesson,
             date: req.body.date,
             time: req.body.time,
+            option: option,
+            optionValue: optionValue,
+            totalPrice: req.body.totalPrice,
           }
     }
 
@@ -77,6 +83,9 @@ export default async(req, res) => {
             lesson: req.body.lesson,
             date: req.body.date,
             time: req.body.time,
+            option: option,
+            optionValue: optionValue,
+            totalPrice: req.body.totalPrice,
           }
         }
         sendgrid.send(msg);
