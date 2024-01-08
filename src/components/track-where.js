@@ -33,12 +33,12 @@ width: 100%;
 }
 .content-left {
     height: fit-content;
-    max-width: 800px;
+    max-width: 700px;
     b {
         margin-left: -18px;
     }
     .image-placeholder {
-        width: 800px;
+        width: 700px;
     }
     .track-list {
         display: flex;
@@ -47,11 +47,11 @@ width: 100%;
         margin-top: 30px;
     }
     .track-text {
-        max-width: 220px;
+        max-width: 300px;
         padding: 0 20px;
         opacity: 0.6;
         p {
-            margin: 5px 0;
+            margin: 10px 0;
         }
         :hover {
             opacity: 1;
@@ -66,7 +66,7 @@ width: 100%;
     max-width: 400px;
     padding-left: 40px;
     .image-placeholder {
-        width: 400px;
+        width: 500px;
         border: none;
     }
     .content-box {
@@ -75,7 +75,8 @@ width: 100%;
     }
 }
 .image-placeholder {
-    height: 360px;
+    // height: 360px;
+    height: 460px;
     width: 500px;
     background-color: grey;
     display: flex;
