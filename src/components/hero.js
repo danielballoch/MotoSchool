@@ -11,6 +11,7 @@ align-items: center;
 background-color: grey;
 height: 100vh;
 width: 100%;
+overflow: hidden;
 // padding-top: 100px;
 ::before {
     z-index: 100;
@@ -28,7 +29,7 @@ width: 100%;
     width: 100vw;
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100vh;
     object-fit: cover;
 }
 
@@ -38,6 +39,7 @@ width: 100%;
     position: relative;
     place-items: center;
     display: grid;
+    width: 100vw;
     max-height: 100vh;
 }
 .main-content {
@@ -131,7 +133,7 @@ export default function Hero(){
               controlsList="nodownload"
               id="BgVideo"
               title="Phil MX"
-              height="100%"
+              height="100vh"
               width="100%"
               loop
               muted

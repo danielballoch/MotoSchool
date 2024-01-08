@@ -13,9 +13,10 @@ justify-content: center;
 align-items: center;
 background-color: grey;
 min-height: 960px;
-height: 100vh;
-width: 100vw;
 box-sizing: border-box;
+height: 100vh;
+width: 100%;
+overflow: hidden;
 ::before {
     display: grid;
     grid-area: 1/1;
@@ -28,7 +29,7 @@ box-sizing: border-box;
 }
 .background-image {
     grid-area: 1/1;
-    width: 100vw;
+    width: 100%;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -42,7 +43,7 @@ box-sizing: border-box;
     flex-direction: row;
     display: grid;
     max-height: 100%;
-    width: 100vw;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }

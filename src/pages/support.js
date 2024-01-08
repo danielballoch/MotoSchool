@@ -10,7 +10,8 @@ import { GatsbyImage, getImage} from "gatsby-plugin-image"
 const Wrapper = styled.div`
 display: flex;
 flex-direction: column;
-width: 100vw;
+width: 100%;
+overflow: hidden;
 .contact-wrapper {
   display: grid;
   justify-content: center;
