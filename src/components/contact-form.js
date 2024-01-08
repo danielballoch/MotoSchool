@@ -295,8 +295,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
 
     useEffect(() => {
         console.log("update price")
-        if (lessonPrice === 100){setGearPrice(0); setBikeCost(0)} else {setHourCost(0)}
-        setTotalPrice(lessonPrice + gearPrice + bikeCost + hourCost)
+        if (lessonPrice === 100){setTotalPrice(lessonPrice + hourCost)} else {setTotalPrice(lessonPrice + gearPrice + bikeCost + hourCost)}
     },[lessonPrice, gearPrice, bikeCost, hourCost])
 
 
