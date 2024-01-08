@@ -20,6 +20,10 @@ align-content: center;
 bottom: 0;
 height: auto;
 margin: auto;
+.nav-logo {
+    filter: invert(100%);
+    width: 340px;
+}
 a {
     color: white;
     margin: 0 20px;
@@ -104,7 +108,10 @@ export default function Footer() {
   return (
     <Wrapper>
         <div className="footer-content">
-            <Link to="/"><h2>MotoSchool</h2></Link>
+            <Link to="/">
+            {/* <h2>MotoSchool</h2> */}
+            <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="nav-logo" src="../images/moto-school-logo.png"/>
+            </Link>
             {/* <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="footer-logo" src="../images/icon.png"/> */}
             <div className="nav">
                    <Link to="/">Home</Link>

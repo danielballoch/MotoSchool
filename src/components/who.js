@@ -36,7 +36,17 @@ width: 100%;
         font-size: 14px;
     }
 }
-@media(max-width:860px){
+@media(max-width:1300px){
+    .content-left {
+        width: 700px;
+    }
+    .content-right {
+        h2 {
+            margin-top: 0;
+        }
+    }
+}
+@media(max-width:1200px){
     flex-direction: column;
     height: auto;
     .content-left {
@@ -47,7 +57,9 @@ width: 100%;
     }
     .content-right {
         margin-bottom: 50px;
+        max-width: 80%;
         h2 {
+            margin-top: 40px;
             font-size: 40px;
         }
     }

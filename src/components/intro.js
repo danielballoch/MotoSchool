@@ -22,7 +22,7 @@ width: 100%;
     background-color: white;
     color: white;
     width: 600px;
-    height: 600px;
+    height: 640px;
     object-fit: cover;
 }
 .content-right {
@@ -34,7 +34,11 @@ width: 100%;
     }
     p {
         font-size: 14px;
+        :last-of-type {
+            margin-bottom: 0;
+        }
     }
+    margin-bottom: 30px;
 }
 @media(max-width:1100px){
     flex-direction: column;

@@ -86,7 +86,7 @@ width: 100%;
 .content-left-mobile {
  display: none;       
 }
-@media(max-width: 1270px){
+@media(max-width: 1170px){
     flex-direction: column;
     height: auto;
     padding: 50px 0;
@@ -109,20 +109,38 @@ width: 100%;
             margin: 0 auto 50px auto;
             .image-placeholder {
                 width: 100%;
+                height: 100%;
             }
         }
     }
     .content-right {
+        width: 90%!important;
         max-width: 90%;
         padding-left: 0;
         margin: auto;
         .image-placeholder {
-            width: 100%;
+            width: 100%!important;
             border: none;
         }
         .content-box {
             margin-top: 30px;
             padding: 0;
+        }
+    }
+}
+@media(max-width: 1370px){
+    .image-placeholder {
+        height: 300px;
+    }
+    .content-left {
+        .image-placeholder {
+            height: 500px;
+        }
+    }
+    .content-right {
+        width: 300px;
+        .image-placeholder {
+            width: 300px;
         }
     }
 }
