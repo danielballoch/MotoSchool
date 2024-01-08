@@ -9,7 +9,7 @@ import Seo from "../components/seo"
 
 const Wrapper = styled.div`
 /* padding-top: 200px; */
-padding: 200px 20px 100px 20px;
+padding: 300px 20px 100px 20px;
 margin: auto;
 max-width: 900px;
 hr {

@@ -224,6 +224,7 @@ form {
 }
 #name , #email, #lesson, .select-style {
     font-size: 16px;
+    color: black;
     padding: 5px;
     border: solid 1px black;
     border-radius: 0;

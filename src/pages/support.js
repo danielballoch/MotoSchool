@@ -40,7 +40,7 @@ overflow: hidden;
 }
 `
 const Faq = styled.div`
-margin: 100px auto;
+margin: 200px auto 100px auto;
 height: auto;
 color: black;
 display: flex;
