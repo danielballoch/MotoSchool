@@ -42,7 +42,8 @@ export default async(req, res) => {
       res.json({ message: "Try a POST!" })
     }
     const message = {
-          to: "daniel@thoughtfulhq.com",
+          to: "philsmotoschool@outlook.com",
+          replyTo: req.body.email,
           templateId: 'd-363f432af5b844f19d1b55ce7269b7c6',
           from: {
             email: "daniel@thoughtfulhq.com",
@@ -63,6 +64,7 @@ export default async(req, res) => {
         console.log("are we getting here?")
         const msg = {
           to: req.body.email,
+          replyTo: "philsmotoschool@outlook.com",
           templateId: 'd-363f432af5b844f19d1b55ce7269b7c6',
           from: {
             email:process.env.SENDGRID_AUTHORIZED_EMAIL,
@@ -78,6 +80,8 @@ export default async(req, res) => {
           }
         }
         sendgrid.send(msg);
+        msg.to = "daniel@thoughtfulhq.com"
+        sendgrid.send(msg)
         res.status(200).json({
           message: "I will send email",
         })

@@ -45,7 +45,8 @@ export default async(req, res) => {
     let optionValue = ""
     if (req.body.hours){option = "Lesson Hours: "; optionValue = req.body.hours} else {option = "Rental Bikes & Gear: "; optionValue = req.body.bike + ", " + req.body.gear}
     const message = {
-          to: "daniel@thoughtfulhq.com",
+          to: "philsmotoschool@outlook.com",
+          replyTo: req.body.email,
           templateId: 'd-ac2bbcc54a3047ae9da07bfd5dc77e21',
           from: {
             email: "daniel@thoughtfulhq.com",
@@ -70,6 +71,7 @@ export default async(req, res) => {
         console.log("are we getting here?")
         const msg = {
           to: req.body.email,
+          replyTo: "philsmotoschool@outlook.com",
           templateId: 'd-7844369c463c40349f90eccc5ed5db01',
           from: {
             email:process.env.SENDGRID_AUTHORIZED_EMAIL,
@@ -88,6 +90,8 @@ export default async(req, res) => {
             totalPrice: req.body.totalPrice,
           }
         }
+        sendgrid.send(msg);
+        msg.to = "daniel@thoughtfulhq.com"
         sendgrid.send(msg);
         res.status(200).json({
           message: "I will send email",
