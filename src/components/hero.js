@@ -44,6 +44,7 @@ width: 100%;
     width: 580px;
     padding-right: 400px;
     height: fit-content;
+    
     h1 {
         margin-top: 0;
         margin-bottom: 0;
@@ -85,6 +86,13 @@ width: 100%;
         box-sizing: border-box;
         h1 {
             font-size: 42px;
+            text-align: center
+        }
+        p {
+            text-align: center;
+        }
+        button {
+            width: 100%;
         }
     }
 }
