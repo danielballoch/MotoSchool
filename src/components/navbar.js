@@ -13,21 +13,26 @@ justify-content: center;
     z-index: 500;
     position: absolute;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1020px;
     display: flex;
     flex-direction: row;
     justify-content: right;
     align-items: center;
     align-content: center;
-    height: 140px;
+    height: 180px;
     margin: 10px auto;
     .logo {
         margin-right: auto;
     }
     .nav-logo {
         height: 200px;
-        width: 200px;
-        border-radius: 100px;
+        width:240px;
+        img {
+            object-fit: contain!important;
+        }
+        // width: 250px;
+
+        // border-radius: 100px;
     }
     .nav-middle {
         margin-right: 25px;
@@ -42,6 +47,10 @@ justify-content: center;
         }
         .contact-us {
             display: none;
+        }
+        .nav-logo {
+            height: 100px;
+            width:120px;
         }
     }
     .menu {
@@ -191,8 +200,8 @@ export default function Navbar({contact, invert}) {
     <Wrapper>
             <div className={menu? "wrapper fixed" : "wrapper"}>
                 <Link to="/" className="logo">
-                    {/* <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="nav-logo" src="../images/moto-school-logo.png"/> */}
-                    <span>MOTO</span>SCHOOL
+                    <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="nav-logo" src="../images/moto-school-logo.png"/>
+                    {/* <span>MOTO</span>SCHOOL */}
                 </Link> 
                 <div className={invert? "nav-middle invert" : "nav-middle" }>
                     <Link to="/">Home</Link>

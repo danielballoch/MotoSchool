@@ -3,6 +3,7 @@ import styled from "@emotion/styled"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
 import { StructuredText } from 'react-datocms';
+import VideoSRC from "../images/phil-motoschool.mp4"
 
 const Wrapper = styled.div`
 display: flex;
@@ -18,10 +19,10 @@ width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    // object-fit: cover;
     color: white;
-    width: 600px;
-    height: 600px;
+    width: 800px;
+    height: fit-content;
 }
 .content-right {
     max-width: 400px;
@@ -77,7 +78,23 @@ export default function Who(){
     let c = data.datoCmsHomepage;
     return(
         <Wrapper>
-            <GatsbyImage className="content-left" image={getImage(c.coachImage.gatsbyImageData)} alt={c.coachImage.alt} placeholder="blur"/>
+            <video autoplay className="content-left"
+              controls
+              disablePictureInPicture 
+              controlsList="nodownload"
+              id="BgVideo"
+              title="Phil MX"
+              height="100%"
+              width="100%"
+              loop
+              muted
+              autoPlay={true}
+              playsInline 
+              preload="auto"
+            >
+                <source  src={VideoSRC} disablePictureInPicture  type="video/mp4" />
+            </video>
+            {/* <GatsbyImage className="content-left" image={getImage(c.coachImage.gatsbyImageData)} alt={c.coachImage.alt} placeholder="blur"/> */}
             <div className="content-right">
                 <div className="content-box">
                     <StructuredText
