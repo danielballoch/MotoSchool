@@ -24,6 +24,11 @@ justify-content: center;
     .logo {
         margin-right: auto;
     }
+    .nav-logo {
+        height: 200px;
+        width: 200px;
+        border-radius: 100px;
+    }
     .nav-middle {
         margin-right: 25px;
     }
@@ -54,7 +59,10 @@ justify-content: center;
         z-index: 800;
         color: black;
         font-size: 30px;
-        font-weight: 600;
+        font-weight: 900;
+        span {
+            color: #da291c;
+        }
         // width: 100px;
         // height: 100px;
         // box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
@@ -183,8 +191,9 @@ export default function Navbar({contact, invert}) {
     <Wrapper>
             <div className={menu? "wrapper fixed" : "wrapper"}>
                 <Link to="/" className="logo">
-                    {/* <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="nav-logo" src="../images/icon.png"/> */}
-                    MotoSchool</Link>
+                    {/* <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="nav-logo" src="../images/moto-school-logo.png"/> */}
+                    <span>MOTO</span>SCHOOL
+                </Link> 
                 <div className={invert? "nav-middle invert" : "nav-middle" }>
                     <Link to="/">Home</Link>
                     <Link to="/#trials-lessons">Trials Lessons</Link>

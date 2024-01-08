@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { GatsbyImage, getImage} from "gatsby-plugin-image"
+import VideoSRC from "../images/phil-motoschool.mp4"
 
 const Wrapper = styled.div`
 display: grid;
@@ -24,10 +25,11 @@ width: 100%;
 }
 .background-image {
     grid-area: 1/1;
-    width: 100%;
+    width: 100vw;
     margin: 0;
     padding: 0;
     height: 100%;
+    object-fit: cover;
 }
 
 .content-wrapper {
@@ -114,7 +116,22 @@ export default function Hero(){
     let c = data.datoCmsHomepage;
     return(
         <Wrapper>
-            <GatsbyImage className="background-image" image={getImage(c.heroBackground.gatsbyImageData)} alt={c.heroBackground.alt} placeholder="blur"/>
+            {/* <GatsbyImage className="background-image" image={getImage(c.heroBackground.gatsbyImageData)} alt={c.heroBackground.alt} placeholder="blur"/> */}
+            <video autoplay className="background-image"
+              disablePictureInPicture 
+              controlsList="nodownload"
+              id="BgVideo"
+              title="Phil MX"
+              height="100%"
+              width="100%"
+              loop
+              muted
+              autoPlay={true}
+              playsInline 
+              preload="auto"
+            >
+                <source src={VideoSRC} disablePictureInPicture  type="video/mp4" />
+            </video>
             <div className="content-wrapper">
                 <div className="main-content">
                     <h1>{c.heroTitle}</h1>
