@@ -129,7 +129,7 @@ export const Head = (data) => {
     let lesson = data.data.datoCmsLessonLevel;
     return (
       <Seo
-        title={lesson.title + " | MotoSchool"}
+        title={lesson.title + " | MOTOSCHOOL"}
         description={lesson.blurb}
       />
     )

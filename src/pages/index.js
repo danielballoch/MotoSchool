@@ -27,6 +27,6 @@ const IndexPage = () => {
 export default IndexPage
 
 export const Head = () => <SEO
-title="MotoSchool | Kids and Adults Trials Coaching Tauranga"
-description="Trials and Motocross facility and coaching in Tauranga, New Zealand. We help riders gain confidence and improve their skills."
+title="MOTOSCHOOL | Kids and Adults Trials Coaching Tauranga"
+description="Trials and Motocross facility and coaching in Tauranga, New Zealand. We help dirt bike riders gain confidence and improve their skills."
 />

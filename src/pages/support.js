@@ -205,7 +205,7 @@ const FAQ = (data) => {
 export default FAQ;
 
 export const Head = () => <SEO
-title="MotoSchool | Support"
+title="SUPPORT & FAQ | MOTOSCHOOL"
 description="Read through our frequently asked questions or get in touch through the contact form"
 />
 
