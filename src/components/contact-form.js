@@ -428,7 +428,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                          {...register("Lesson", { required: true})}
                          onChange={(e) => setLessonPrice(Number(e.target.value))}
                     >
-                        <option value="80" selected>30 minute lesson - $80</option>
+                        <option value="80">30 minute lesson - $80</option>
                         <option value="145" >1 hour lesson - $145</option>
                         <option value="100" >Coaching only - $100 p/h</option>
                     </select>
@@ -448,7 +448,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                                 {...register("Gear", { required: true})}
                                 onChange={(e) => setGearPrice(Number(e.target.value))}
                             >
-                                <option value="0" selected>1 Set - (included)</option>
+                                <option value="0">1 Set - (included)</option>
                                 <option value="15" >2 Sets - $15</option>
                                 <option value="30" >3 Sets - $30</option>
                                 <option value="45" >4 Sets - $45</option>
@@ -465,7 +465,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                                 {...register("Bike", { required: true})}
                                 onChange={(e) => setBikeCost(Number(e.target.value))}
                             >
-                                <option value="0" selected>1 bike - (included)</option>
+                                <option value="0">1 bike - (included)</option>
                                 <option value="45" >2 bikes - $45</option>
                                 <option value="90" >3 bikes - $90</option>
                                 <option value="130" >4 bikes - $135</option>
@@ -496,7 +496,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                     <label>Time Selection:</label>
                     <div className="time-selection">
                         {orderedTimes.map((time, i)=>(
-                            <div onClick={()=>setActiveTime(i)} className={i === activeTime ? "active-time" : ""}>{time.time}</div>
+                            <div key={"timeslot "+i} onClick={()=>setActiveTime(i)} className={i === activeTime ? "active-time" : ""}>{time.time}</div>
                         ))}
                     </div>
 
@@ -505,7 +505,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                     
                     <button
                         type="submit" 
-                        class="g-recaptcha button-style"
+                        className="g-recaptcha button-style"
                         data-sitekey="site_key"
                         data-callback='onSubmit'
                         data-action='submit'

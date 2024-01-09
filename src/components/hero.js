@@ -128,7 +128,7 @@ export default function Hero(){
     return(
         <Wrapper>
             {/* <GatsbyImage className="background-image" image={getImage(c.heroBackground.gatsbyImageData)} alt={c.heroBackground.alt} placeholder="blur"/> */}
-            <video autoplay className="background-image"
+            <video className="background-image"
               disablePictureInPicture 
               controlsList="nodownload"
               id="BgVideo"

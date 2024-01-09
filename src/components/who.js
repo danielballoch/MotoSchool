@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage} from "gatsby-plugin-image"
+// import { GatsbyImage, getImage} from "gatsby-plugin-image"
 import { StructuredText } from 'react-datocms';
 import VideoSRC from "../images/phil-motoschool.mp4"
 
@@ -90,7 +90,7 @@ export default function Who(){
     let c = data.datoCmsHomepage;
     return(
         <Wrapper>
-            <video autoplay className="content-left"
+            <video className="content-left"
               controls
               disablePictureInPicture 
               controlsList="nodownload"

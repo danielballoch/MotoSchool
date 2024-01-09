@@ -78,7 +78,6 @@ overflow: hidden;
             transform: scale(1.015);
             img {
                 filter: brightness(110%); 
-                filter: contrast(110%);
             }
             
         }
@@ -95,7 +94,7 @@ overflow: hidden;
             p {
                 margin: 0;
             }
-            a {
+            .bottom-link {
                 margin-top: auto
             }
         }
@@ -166,13 +165,13 @@ export default function Services(){
                 </div>
                 <div className="skill-level-wrapper">
                 {orderedLessons.map((lesson, i) => (
-                        <Link to={"/" + lesson.urlPath + "#top"} className="skill-level" onMouseEnter={() => setActiveLesson(i)}>
+                        <Link to={"/" + lesson.urlPath + "#top"} className="skill-level" onMouseEnter={() => setActiveLesson(i)} key={"level "+i}>
                         <GatsbyImage className="img" image={getImage(lesson.mainImage.gatsbyImageData)} alt={lesson.mainImage.alt} placeholder="blur"/>
                         {/* <div className="img">Image Placeholder</div> */}
                         <div className="level-content">
                             <h3>{lesson.title}</h3>
                             <p>{lesson.blurb}</p>
-                            <a>{lesson.buttonText}</a>
+                            <p className="bottom-link">{lesson.buttonText}</p>
                         </div>
                     </Link>
                     ))}

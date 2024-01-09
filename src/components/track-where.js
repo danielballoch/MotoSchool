@@ -195,14 +195,14 @@ export default function TrackWhere(){
                 {/* <div className="image-placeholder">Image Placeholder</div> */}
                 <div className="track-list">
                     {orderedTracks.map((track, i) => (
-                        <div onClick={() => setActive(i)} className={active === i? "track-text active" : "track-text"}><p><b>{track.trackName}: </b>{track.trackBlurb}</p></div>
+                        <div key={"Track " + i} onClick={() => setActive(i)} className={active === i? "track-text active" : "track-text"}><p><b>{track.trackName}: </b>{track.trackBlurb}</p></div>
                     ))}
                 </div>
             </div>
             <div className="content-left-mobile">
                 <div className="track-list">
                     {orderedTracks.map((track, i) => (
-                        <div className="mobile-track-item">
+                        <div className="mobile-track-item" key={track.trackName}>
                             <GatsbyImage className="image-placeholder" image={getImage(track.mainImage.gatsbyImageData)} alt={track.mainImage.alt} placeholder="blur"/>
                             <div onClick={() => setActive(i)} className={active === i? "track-text active" : "track-text"}><p><b>{track.trackName}: </b>{track.trackBlurb}</p></div>
                         </div>
@@ -211,7 +211,7 @@ export default function TrackWhere(){
             </div>
             <div className="content-right">
                 {/* <div className="image-placeholder">Image Placeholder</div> */}
-                <iframe title="motoschool google maps widget" className="image-placeholder" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35666.34531285192!2d176.03591442279213!3d-37.80199983327254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d6dcfbbc92ec5cb%3A0xb11b99cb54815c53!2sOmanawa%20Hall!5e0!3m2!1sen!2snz!4v1702947643477!5m2!1sen!2snz" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe title="motoschool google maps widget" className="image-placeholder" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35666.34531285192!2d176.03591442279213!3d-37.80199983327254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d6dcfbbc92ec5cb%3A0xb11b99cb54815c53!2sOmanawa%20Hall!5e0!3m2!1sen!2snz!4v1702947643477!5m2!1sen!2snz" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                 <div className="content-box">
                     <StructuredText
                             data={main.locationText.value}

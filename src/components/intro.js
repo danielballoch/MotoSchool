@@ -80,7 +80,7 @@ export default function Intro(){
     return(
         <Wrapper>
             {/* <GatsbyImage className="content-left" image={getImage(c.introImage.gatsbyImageData)} alt={c.introImage.alt} placeholder="blur"/> */}
-            <video autoplay className="content-left"
+            <video className="content-left"
               controls
               disablePictureInPicture 
               controlsList="nodownload"
