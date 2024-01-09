@@ -90,7 +90,7 @@ export default async(req, res) => {
             totalPrice: req.body.totalPrice,
           }
         }
-        // sendgrid.send(msg);
+        sendgrid.send(msg);
         msg.to = "daniel@thoughtfulhq.com"
         sendgrid.send(msg);
         res.status(200).json({
