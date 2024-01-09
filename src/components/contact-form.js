@@ -195,8 +195,8 @@ form {
     width: 100%;
     max-width: 100%;
     form {
-        box-sizing: border-box;
-        width: 100%;
+        // box-sizing: border-box;
+        width: 80%;
         max-width: 100%;
         padding: 30px 30px 20px 30px; 
     }
