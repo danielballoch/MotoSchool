@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage} from "gatsby-plugin-image"
+// import { GatsbyImage, getImage} from "gatsby-plugin-image"
 import { StructuredText } from 'react-datocms';
 import VideoSRC from "../images/kids-motoschool.mp4"
 

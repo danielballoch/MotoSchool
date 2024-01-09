@@ -2,8 +2,6 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import { StaticImage } from 'gatsby-plugin-image'
-import Phone from "../images/phone.svg"
-import Email from "../images/mail.svg"
 
 const Wrapper = styled.footer`
 position: relative;

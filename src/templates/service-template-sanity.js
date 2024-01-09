@@ -92,11 +92,7 @@ section {
 `
 
 const BlogPostTemplate = (data) => {
-    
-//   const siteTitle = site.siteMetadata?.title || `Title`
-    console.log("temData: ", data)
     let service = data.data.datoCmsLessonLevel
-    console.log("service: ", service)
     const image = getImage(service.mainImage.gatsbyImageData)
   return (
     <Layout invert={true}>

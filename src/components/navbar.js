@@ -196,7 +196,6 @@ justify-content: center;
 export default function Navbar({contact, invert, location}) {
     const [menu, updateMenu] = useState(false);
     const [toggle, updateToggle] = useState(false);
-    console.log("hello hello ", location)
     return (
     <Wrapper>
             <div className={menu? "wrapper fixed" : "wrapper"}>

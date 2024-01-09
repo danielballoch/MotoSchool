@@ -302,30 +302,23 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
     const [hourCost, setHourCost] = useState(0)
 
     useEffect(() => {
-        console.log("update price")
         if (lessonPrice === 100){setTotalPrice(lessonPrice + hourCost)} else {setTotalPrice(lessonPrice + gearPrice + bikeCost + hourCost)}
     },[lessonPrice, gearPrice, bikeCost, hourCost])
 
 
     
     useEffect(()=> {
-        console.log(datesUnavailable[0].bookedDate)
-        console.log("old:",bookedDates)
         let datesUnavailableRanges = []
         for(let i = 0; i < datesUnavailable.length; i++){
             let d = datesUnavailable[i].bookedDate.split("/")
-            console.log(d)
-            console.log("test date:", d[0], d[1],d[2])
             //except here they need to be in the right format so I need to seperate and make it so it's like this: new Date(2023, 11, 26);
             datesUnavailableRanges.push([new Date(Number(d[2]), Number(d[1])-1, Number(d[0])), new Date(Number(d[2]), Number(d[1])-1, Number(d[0]))])
         }
         setBookedDates(datesUnavailableRanges);
-        console.log("new:",datesUnavailableRanges)
     },[datesUnavailable])
 
     function tileDisabled({ date, view}) {
       // Add class to tiles in month view only
-    //   console.log("test og",bookedDates )
       if (view === 'month') {
         // Check if a date React-Calendar wants to check is within any of the ranges
         return isWithinRanges(date, bookedDates);
@@ -344,17 +337,12 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
 
       async function onSubmit(data){
         // const reRef = useRef<>();
-        console.log(data)
         const token = await reRef.current.executeAsync();
         reRef.current.reset();
-        // console.log("this is where form data should log")
-        // console.log(data)
-        // console.log(token)
         let dd = selectedDate.getDate();
         let mm = selectedDate.getMonth()+1;
         let yyyy = selectedDate.getFullYear();
         let reformattedDate = dd+"/"+mm+"/"+yyyy;
-        console.log(reformattedDate)
         fetch(`/api/sendgrid`, {
           method: `POST`,
           body: JSON.stringify({

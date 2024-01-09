@@ -1,8 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
 import ContactForm from "../components/contact-form"
-import Phone from "../images/phone.svg"
-import Email from "../images/mail.svg"
 import { useStaticQuery, graphql } from "gatsby"
 import { StructuredText } from 'react-datocms';
 import { GatsbyImage, getImage} from "gatsby-plugin-image"

@@ -14,7 +14,6 @@ padding: 200px 20px 100px 20px;
 
 
 const IndexPage = (data) => {
-  console.log(data)
   return (
     <Layout invert={true} location={data.location.pathname}>
       <Wrapper>

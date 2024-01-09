@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { GatsbyImage, getImage} from "gatsby-plugin-image"
+// import { GatsbyImage, getImage} from "gatsby-plugin-image"
 import VideoSRC from "../images/phil-motoschool.mp4"
 
 const Wrapper = styled.div`

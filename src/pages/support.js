@@ -172,7 +172,6 @@ const Content = ({question, answer,i}) => {
 const FAQ = (data) => {
     let Questions = data.data.allDatoCmsFaq.nodes;
     let c = data.data.datoCmsSupportPage
-    console.log("support", data)
     let order = []
     let orderedFAQ = []
     for (let i = 0; i <= Questions.length-1; i++){
@@ -182,7 +181,6 @@ const FAQ = (data) => {
     for (let i = 0; i <= Questions.length-1; i++){
         orderedFAQ.push(Questions[order[i][1]])
     }
-    console.log("ordered faq:",orderedFAQ)
     return(
         <Layout invert={true} location={data.location.pathname}>
             <Wrapper>
