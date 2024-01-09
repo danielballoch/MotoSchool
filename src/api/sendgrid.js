@@ -43,9 +43,9 @@ export default async(req, res) => {
     }
     let option = "No options selected"
     let optionValue = ""
-    if (req.body.hours){option = "Lesson Hours: "; optionValue = req.body.hours} else {option = "Rental Bikes & Gear: "; optionValue = req.body.bike + ", " + req.body.gear}
+    if (req.body.lesson === "Coaching only - $100 p/h"){option = "Lesson Hours: "; optionValue = req.body.hours} else {option = "Rental Bikes & Gear: "; optionValue = req.body.bike + ", " + req.body.gear}
     const message = {
-          to: "daniel@thoughtfulhq.com",
+          to: "philsmotoschool@outlook.com",
           replyTo: req.body.email,
           templateId: 'd-ac2bbcc54a3047ae9da07bfd5dc77e21',
           from: {
@@ -69,6 +69,7 @@ export default async(req, res) => {
     return sendgrid.send(message).then(
       () => {
         console.log("are we getting here?")
+        console.log("req.body: ", req.body)
         const msg = {
           to: req.body.email,
           replyTo: "philsmotoschool@outlook.com",
