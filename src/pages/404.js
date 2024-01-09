@@ -28,7 +28,7 @@ const NotFoundPage = () => {
     <main style={pageStyles}>
       <h1 style={headingStyles}>Page not found</h1>
       <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
+        Sorry, we couldn’t find what you were looking for - please follow the link below or contact Phil at: philsmotoschool@outlook.com to notify us of what went wrong.
         <br />
         {process.env.NODE_ENV === "development" ? (
           <>
