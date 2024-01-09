@@ -130,7 +130,7 @@ form {
         // margin: -40px;
         position: absolute;
         z-index: 100;
-        max-width: 560px;
+        max-width: 400px;
         width: 100vw;
         height: 0px;
         overflow: hidden;
@@ -141,15 +141,11 @@ form {
             transition: color .5s ease;
             color: rgba(255,255,255,0);
         }
-        div {
-            width: 90vw;
-            max-width: 450px;
-        }
     }
     .sent {
         color: black;
         transition: background-color .5s ease, color .5s ease;
-        height: 580px;
+        height: 700px;
         background-color: rgba(255,255,255,.9);
         p, h2 {
             transition: color .5s ease;
@@ -203,6 +199,17 @@ form {
         width: 100%;
         max-width: 100%;
         padding: 30px 30px 20px 30px; 
+    }
+    .message {
+        box-sizing: border-box!important;
+        padding: 30px 30px 20px 30px;
+        max-width: 100%!important;
+    }
+    .sent {
+        max-width: 100%!important;
+        width: 95%!important;
+        margin-left: -30px;
+        height: 700px!important
     }
     .info-div {
         // width: 100vw;
