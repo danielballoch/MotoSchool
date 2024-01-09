@@ -172,7 +172,7 @@ const Content = ({question, answer,i}) => {
 const FAQ = (data) => {
     let Questions = data.data.allDatoCmsFaq.nodes;
     let c = data.data.datoCmsSupportPage
-
+    console.log("support", data)
     let order = []
     let orderedFAQ = []
     for (let i = 0; i <= Questions.length-1; i++){
@@ -184,7 +184,7 @@ const FAQ = (data) => {
     }
     console.log("ordered faq:",orderedFAQ)
     return(
-        <Layout invert={true}>
+        <Layout invert={true} location={data.location.pathname}>
             <Wrapper>
                 <Faq itemScope itemType="https://schema.org/FAQPage">
                   <h1>{c.title}</h1>

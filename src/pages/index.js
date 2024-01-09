@@ -11,9 +11,9 @@ import SEO from "../components/seo"
 
 
 
-const IndexPage = () => {
+const IndexPage = ({location}) => {
   return (
-    <Layout invert={true}>
+    <Layout invert={true} location={location.pathname}>
       <Hero/>
       <Intro/>
       <Services/>

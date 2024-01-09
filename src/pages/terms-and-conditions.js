@@ -16,7 +16,7 @@ padding: 200px 20px 100px 20px;
 const IndexPage = (data) => {
   console.log(data)
   return (
-    <Layout invert={true}>
+    <Layout invert={true} location={data.location.pathname}>
       <Wrapper>
         <StructuredText
             data={data.data.datoCmsTermsAndConditionsPage.termsAndConditions.value}

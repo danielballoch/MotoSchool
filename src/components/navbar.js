@@ -193,14 +193,15 @@ justify-content: center;
 }
 `
 
-export default function Navbar({contact, invert}) {
+export default function Navbar({contact, invert, location}) {
     const [menu, updateMenu] = useState(false);
     const [toggle, updateToggle] = useState(false);
+    console.log("hello hello ", location)
     return (
     <Wrapper>
             <div className={menu? "wrapper fixed" : "wrapper"}>
                 <Link to="/" className="logo">
-                    <StaticImage alt="coast sweep chimney cleaning - in circle wrapped around chimney cleaner cartoon" placeholder="blurred" className="nav-logo" src="../images/moto-school-logo.png"/>
+                    <StaticImage alt="Adult and junior riders climbing over gear on trials bikes" placeholder="blurred" className="nav-logo" src="../images/moto-school-logo.png"/>
                     {/* <span>MOTO</span>SCHOOL */}
                 </Link> 
                 <div className={invert? "nav-middle invert" : "nav-middle" }>
@@ -213,10 +214,10 @@ export default function Navbar({contact, invert}) {
                 {/* <button className="menu" onClick={() => updateMenu(!menu)}>Menu</button> */}
                 <Hamburger invert={invert} toggle={toggle} clickFunction={() => {updateMenu(!menu); updateToggle(!toggle)}}/>
                 <div className={menu ? "side-drawer" : "hide"}>
-                    <Link  onClick={() => {updateMenu(!menu); updateToggle(!toggle)}} to="/">Home</Link>
-                    <Link onClick={() => {updateMenu(!menu); updateToggle(!toggle)}} to="/#trials-lessons">Trial Lessons</Link>
-                    <Link onClick={() => {updateMenu(!menu); updateToggle(!toggle)}} to="/#our-tracks">Our Tracks</Link>
-                    <Link onClick={() => {updateMenu(!menu); updateToggle(!toggle)}} to="/support">Support</Link>
+                    <Link  onClick={() => { if (location === "/"){updateMenu(!menu);} updateToggle(!toggle)}} to="/">Home</Link>
+                    <Link onClick={() => { if (location === "/"){updateMenu(!menu);} updateToggle(!toggle)}} to="/#trials-lessons">Trial Lessons</Link>
+                    <Link onClick={() => { if (location === "/"){updateMenu(!menu);} updateToggle(!toggle)}} to="/#our-tracks">Our Tracks</Link>
+                    <Link onClick={() => { if (location === "/support/"){updateMenu(!menu); updateToggle(!toggle)}}} to="/support">Support</Link>
                 </div>
             </div>
     </Wrapper>
