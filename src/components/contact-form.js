@@ -202,10 +202,11 @@ form {
     }
     .message {
         box-sizing: border-box!important;
-        padding: 30px 30px 20px 30px;
+        width: 0px;
         max-width: 100%!important;
     }
     .sent {
+        padding: 30px 30px 20px 30px;
         max-width: 100%!important;
         width: 95%!important;
         margin-left: -30px;
