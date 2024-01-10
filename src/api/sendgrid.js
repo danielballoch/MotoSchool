@@ -95,7 +95,7 @@ export default async(req, res) => {
         msg.to = "daniel@thoughtfulhq.com"
         sendgrid.send(msg);
         res.status(200).json({
-          message: "I will send email",
+          message: "Emails Sent",
         })
       },
       error => {
