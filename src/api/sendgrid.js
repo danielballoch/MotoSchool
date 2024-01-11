@@ -45,7 +45,7 @@ export default async(req, res) => {
     let optionValue = ""
     if (req.body.lesson === "Coaching only - $100 p/h"){option = "Lesson Hours: "; optionValue = req.body.hours} else {option = "Rental Bikes & Gear: "; optionValue = req.body.bike + ", " + req.body.gear}
     const message = {
-          to: "daniel@thoughtfulhq.com",
+          to: "philsmotoschool@outlook.com",
           replyTo: req.body.email,
           templateId: 'd-ac2bbcc54a3047ae9da07bfd5dc77e21',
           from: {
