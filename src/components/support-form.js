@@ -240,7 +240,7 @@ export default function ContactElectrical(){
         const token = await reRef.current.executeAsync();
         reRef.current.reset();
 
-        fetch(`/api/sendgridsupport`, {
+        fetch(`/api/postmark-support`, {
           method: `POST`,
           body: JSON.stringify({
             name: data.Name,

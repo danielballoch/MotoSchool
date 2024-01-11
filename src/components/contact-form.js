@@ -372,7 +372,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
         let mm = selectedDate.getMonth()+1;
         let yyyy = selectedDate.getFullYear();
         let reformattedDate = dd+"/"+mm+"/"+yyyy;
-        fetch(`/api/sendgrid`, {
+        fetch(`/api/postmark-booking`, {
           method: `POST`,
           body: JSON.stringify({
             name: data.Name,

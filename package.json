@@ -31,6 +31,7 @@
     "gatsby-source-filesystem": "^5.12.1",
     "gatsby-transformer-sharp": "^5.12.3",
     "node-fetch": "^2.7.0",
+    "postmark": "^4.0.2",
     "react": "^18.2.0",
     "react-calendar": "^4.7.0",
     "react-date-picker": "^10.6.0",
