@@ -497,7 +497,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                                 <option value="0">1 bike - (included)</option>
                                 <option value="45" >2 bikes - $45</option>
                                 <option value="90" >3 bikes - $90</option>
-                                <option value="130" >4 bikes - $135</option>
+                                <option value="135" >4 bikes - $135</option>
                             </select> 
                             </div>
                         </div>
