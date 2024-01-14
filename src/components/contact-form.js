@@ -321,8 +321,8 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
     let BS4 = "4 bikes - $135"
 
     let HS1 = "1 Hour"
-    let HS2 = "2 Hour"
-    let HS3 = "3 Hour"
+    let HS2 = "2 Hours"
+    let HS3 = "3 Hours"
 
     useEffect(() => {
         //calculate total price
@@ -331,7 +331,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
         if(lessonPrice === 80 && lessonString !== LS1){setLessonString(LS1)} else if(lessonPrice === 145 && lessonString !== LS2){setLessonString(LS2)} else if(lessonPrice === 100 && lessonString !== LS3){setLessonString(LS3)} 
         if(gearPrice === 0 && gearString !== GS1){setGearString(GS1)} else if(gearPrice === 15 && gearString !== GS2){setGearString(GS2)} else if(gearPrice === 30 && gearString !== GS3){setGearString(GS3)} else if(gearPrice === 45 && gearString !== GS4){setGearString(GS4)} 
         if(bikeCost === 0 && bikeString !== BS1){setBikeString(BS1)} else if(bikeCost === 45 && bikeString !== BS2){setBikeString(BS2)} else if(bikeCost === 90 && bikeString !== BS3){setBikeString(BS3)} else if(bikeCost === 135 && bikeString !== BS4){setBikeString(BS4)}
-        if(hourCost === 0 && hourString !== HS1){setHourString(HS1)} else if(hourCost === 145 && hourString !== HS2){setHourString(HS2)} else if(hourCost === 100 && hourString !== HS3){setHourString(HS3)} 
+        if(hourCost === 0 && hourString !== HS1){setHourString(HS1)} else if(hourCost === 100 && hourString !== HS2){setHourString(HS2)} else if(hourCost === 200 && hourString !== HS3){setHourString(HS3)} 
     },[lessonPrice, gearPrice, bikeCost, hourCost])
 
 
