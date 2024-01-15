@@ -379,7 +379,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
             email: data.Email,
             lesson: lessonString,
             date: reformattedDate,
-            time: orderedTimes[activeTime].time,
+            time: timesAvailable[activeTime].time,
             gear: gearString,
             bike: bikeString,
             hours: hourString,
@@ -406,15 +406,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
             }, 3000)
           }
       })
-      let order = []
-      let orderedTimes = []
-      for (let i = 0; i <= timesAvailable.length-1; i++){
-          order.push([timesAvailable[i].time, i])
-      }
-      order.sort()
-      for (let i = 0; i <= timesAvailable.length-1; i++){
-          orderedTimes.push(timesAvailable[order[i][1]])
-      }
+
   return (
             <FormDiv>
                 <ReCAPTCHA 
@@ -524,7 +516,7 @@ export default function ContactElectrical({formLabel1, formLabel2, formLabel3, f
                     <DatePicker onChange={updateSelectedDate} value={selectedDate} tileDisabled={tileDisabled} minDate={new Date()} format="dd-MM-y"/>
                     <label>Time Selection:</label>
                     <div className="time-selection">
-                        {orderedTimes.map((time, i)=>(
+                        {timesAvailable.map((time, i)=>(
                             <div key={"timeslot "+i} onClick={()=>setActiveTime(i)} className={i === activeTime ? "active-time" : ""}>{time.time}</div>
                         ))}
                     </div>

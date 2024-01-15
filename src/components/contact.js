@@ -135,9 +135,12 @@ export default function Hero(){
                 formLabel3
                 formLabel4
             }
-            times: allDatoCmsTimesAvailable {
+            times: allDatoCmsTimesAvailable(
+                sort: {position:ASC}
+            ){
                 nodes {
                     time
+                    position
                 }
             }
             unavailable: allDatoCmsBookedDate {

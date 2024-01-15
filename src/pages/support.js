@@ -172,22 +172,13 @@ const Content = ({question, answer,i}) => {
 const FAQ = (data) => {
     let Questions = data.data.allDatoCmsFaq.nodes;
     let c = data.data.datoCmsSupportPage
-    let order = []
-    let orderedFAQ = []
-    for (let i = 0; i <= Questions.length-1; i++){
-        order.push([Questions[i].question, i])
-    }
-    order.sort()
-    for (let i = 0; i <= Questions.length-1; i++){
-        orderedFAQ.push(Questions[order[i][1]])
-    }
     return(
         <Layout invert={true} location={data.location.pathname}>
             <Wrapper>
                 <Faq itemScope itemType="https://schema.org/FAQPage">
                   <h1>{c.title}</h1>
                   <p className="subheading">{c.subTitle}</p>  
-                  {orderedFAQ.map((question, i) => (
+                  {Questions.map((question, i) => (
                       <Content question={question.question} answer={question.answer} i={i}/>
                   ))}
                 </Faq>
@@ -210,8 +201,11 @@ description="Read through our frequently asked questions or get in touch through
 
 export const pageQuery = graphql`
     query FAQ{
-      allDatoCmsFaq {
+      allDatoCmsFaq(
+        sort: {position:ASC}
+      ) {
         nodes {
+          position
           question
           answer {
             value
