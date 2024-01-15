@@ -21,7 +21,24 @@ module.exports = {
   {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "src/images/icon.png"
+      icon: `src/images/icon.png`,
+      icons: [
+        {
+        src: `src/images/favicons/motoschool-social.png`,
+        sizes: `512x512`,
+        type: `image/png`
+        },
+        {
+          src: `src/images/favicons/motoschool-med.png`,
+          sizes: `192x192`,
+          type: `image/png`
+        },
+        {
+        src: `src/images/favicons/motoschool-96x96.png`,
+        sizes: `96x96`,
+        type: `image/png`
+        },
+      ]
     }
   }, "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
